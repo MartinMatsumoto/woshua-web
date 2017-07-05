@@ -1,0 +1,40 @@
+<div class="index_header">
+    <div class="container">
+        <div class="header_favor_box" id="header_favor_box">
+            <img src="/praxis/images/brush.png" alt="" class="logo" id="brush"/>
+
+            <div class="eng_text" id="eng_text">WOSHUA</div>
+            <div class="chn_text" id="chn_text">我刷！</div>
+        </div>
+
+        <div class="login_container">
+            <div class="login_button_container" style="display: block;" id="login_button_container">
+                <a class="login_button" id="login_btn">请登录</a>
+                <span>|</span>
+                <a id="register_btn">免费注册</a>
+            </div>
+
+            <div class="login_user_container" style="display: none;" id="login_user_container">
+                <div class="container">
+                    <img id="login_user_header" src="/praxis/images/header_temp.jpg" />
+                    <a id="login_user_name" style="margin-left: 10px;"></a>
+                    <img class="favorite_img" src="/praxis/images/favorite.png"/>
+                    <span class="favorite_text">(收藏<bb id="favorite_count"><?php echo $favorCount ?></bb>)</span>
+                    <span>|</span>
+                    <a id="quit_btn" style="color: #ecb900;">退出</a>
+                </div>
+            </div>
+        </div>
+
+        <ul class="index_header_ul" id="title_ul">
+            <li class="index_header_li" id="main_btn">首页</li>
+            <li class="index_header_li" id="tiku_btn">题库</li>
+            <li class="index_header_li" id="combine_paper_btn">在线组卷</li>
+            <li class="index_header_li" id="space_btn">个人空间</li>
+            <li class="index_header_li" id="download_btn">下载中心</li>
+        </ul>
+
+    </div>
+
+</div>
+<div th:replace="praxis/include/login_dialog"></div>

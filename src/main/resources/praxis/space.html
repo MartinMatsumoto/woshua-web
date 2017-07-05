@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>我刷！—刷题—更好用的题库</title>
+    <meta name="Generator" content="EditPlus"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11"/>
+    <meta name="viewport"
+          content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=0;user-scalable=yes"/>
+    <meta name="Author" content=""/>
+    <meta name="Keywords" content="数学，英语，语文，理科生，化学，生物，物理，文科生，历史，地理，政治，小学，初中，高中，大学，题库，刷题，组卷"/>
+    <meta name="Description"
+          content="我刷！－完全免费的新一代智能刷题神器，海量题库。我刷APP，功能强大，拥有海量题库，涵盖小学、初中、高中所有题库，是学生提分利器，老师组卷神器！"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link type="text/css" rel="Stylesheet" href="/praxis/css/space.css"/>
+    <link type="text/css" rel="Stylesheet" href="/praxis/css/tiku.css"/>
+    <link type="text/css" rel="Stylesheet" href="/praxis/css/header.css"/>
+    <link type="text/css" rel="Stylesheet" href="/praxis/css/footer.css"/>
+    <link type="text/css" rel="Stylesheet" href="/praxis/css/praxis_dialog.css"/>
+    <div th:replace="praxis/include/include"></div>
+</head>
+
+<body>
+<div th:replace="praxis/include/header"></div>
+<div th:replace="global/include/csrf_include"></div>
+<div class="banner"></div>
+<div class="main">
+    <div class="space_content">
+        <div class="header_container">
+            <img th:src="${user.iconPath}" src="" width="180px" height="180px"/>
+        </div>
+        <div class="user_info">
+            <span class="user_name margin" th:text="${user.nickname}"></span>
+            <span class="tips">收藏</span><span id="space_favorite_count" class="margin" th:text="${user.favoriteNum}"></span>
+            <span class="tips">套卷</span><span class="margin">0</span>
+        </div>
+        <div class="content_container">
+            <div class="title">
+                <span class="title_text">收藏的习题</span>
+            </div>
+            <div class="left_menu">
+                <ul class="menu">
+                    <li class="m_lesson">
+                        <a class="now"><span>我的收藏</span></a>
+                    </li>
+                    <li class="m_note">
+                        <a><span>我的套卷</span></a>
+                    </li>
+                    <li class="m_note">
+                        <a><span>个人设置</span></a>
+                    </li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+
+            <div class="right_container">
+
+                <div class="content" id="global_content">
+
+                    <div class="no_more_data_space" id="no_more_data" style="display: none">
+                        <img src="/praxis/images/sorry.png" alt="" />
+                        <span class="text">没有数据啦 逛逛其他的吧</span>
+                    </div>
+                    <div class="loading_space" id="loading" style="display: none;">
+                        <img src="/praxis/images/loading.gif" alt=""/>
+                    </div>
+                    <div class="item_container" id="item_container" style="display:none;">
+                        <input id="praxis_id" type="hidden" />
+
+                        <div id="content_container" class="content_container">
+
+                        </div>
+                        <div class="button add_favorite" id="add_favorite">添加到收藏</div>
+                        <div class="button add_favorite" id="add_favorite_loading" style="display: none"><img src="/img/loading.gif" /></div>
+                        <div class="button cancel_favorite" id="cancel_favorite">取消收藏</div>
+                        <div class="button cancel_favorite" id="cancel_favorite_loading" style="display: none"><img src="/img/loading.gif" /></div>
+                        <div class="button check_detail" id="check_detail">查看试题明细</div>
+                        <div class="clear"></div>
+                    </div>
+
+                </div>
+                <div class="fenye">
+                    <div class="pg" id="page_num_container">
+                        <a class="prev" id="prev_page">上一页</a>
+                        <a id="page_first" style="display: none">1 ...</a>
+                        <a id="page_num" style="display:none;"></a>
+                        <a id="page_more" style="display: none">... <span></span></a>
+                        <label>
+                            <input id="page_input" type="text" value="1" title="输入页码，按回车快速跳转" size="2" class="px"
+                                   name="custompage" />
+                            <span title="总页数"> / <span id="total_page"></span> 页</span>
+                        </label>
+                        <a class="nxt" id="next_page">下一页</a>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+
+
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div th:replace="praxis/include/praxis_dialog"></div>
+<div th:replace="praxis/include/footer"></div>
+<img style="position: fixed;z-index: 200;" id="favorite_ainimation" src="/praxis/images/favorite.png" />
+</body>
+<script type="text/javascript" src="/praxis/js/space.js?1"></script>
+</html>

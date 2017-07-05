@@ -1,0 +1,59 @@
+.site_footer {
+    background-color: #2d2d2d;
+    height: 150px;
+    width: 100%;
+}
+
+.site_footer .foot_container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.site_footer .logo_container {
+    float: left;
+    margin: 20px 0 0 470px;
+    height: 60px;
+    width: 60px;
+}
+
+.site_footer .logo_container img {
+    float: left;
+    width: 60px;
+}
+
+.site_footer .logo_container span {
+    float: left;
+    text-align: center;
+    color: white;
+}
+
+.site_footer .foot_text {
+    position: absolute;
+    width: 1000px;
+    text-align: center;
+    margin-top: 128px;
+    font-family: 'Microsoft YaHei', monospace;
+    color: rgb(102, 102, 102);
+    font-size: 12px;
+    float: bottom;
+}
+
+.site_footer .foot_text_top {
+    margin-top: 100px;
+}
+
+.site_footer .foot_text span {
+    margin: 2px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.site_footer .foot_text a {
+    color: rgb(102, 102, 102);
+    text-decoration: none;
+}
+
+.site_footer .foot_text a:hover {
+    color: #ecb900;
+}

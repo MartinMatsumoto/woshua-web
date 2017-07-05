@@ -1,0 +1,322 @@
+@charset "UTF-8";
+
+body {
+    padding: 0px;
+    margin: 0px;
+    background: url(/praxis/images/bodybg.jpg);
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    width: 1000px;
+    margin: 160px auto 100px auto;
+    background-color: white;
+    border-radius: 5px;
+    padding-top: 13px;
+}
+
+.main .sort {
+    list-style: outside none none;
+    margin: 20px auto 0;
+    padding: 10px 0;
+    width: 950px;
+    display: block;
+}
+
+.main .sort dl {
+    margin: 10px auto;
+    width: 950px;
+    color: #444;
+    font-family: "Microsoft YaHei", monospace;
+    font-size: 14px;
+}
+
+.main .sort dt {
+    background-color: #f5f5f5;
+    color: #999;
+    float: left;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    width: 66px;
+}
+
+.main .sort dd {
+    float: left;
+    padding-left: 5px;
+    width: 847px;
+    margin-left: 5px;
+}
+
+.main .sort .all_1 {
+    background-color: #f9f9f9;
+}
+
+.main .sort li {
+    float: left;
+    margin-left: 5px;
+}
+
+.main .sort li .now {
+    background-color: #fbca18;
+    color: #fff;
+}
+
+.main .sort li a {
+    color: #666;
+    cursor: pointer;
+    display: block;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 12px;
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+}
+
+.main .sort li a:hover {
+    background-color: #fbca18;
+    color: #fff;
+}
+
+.clear {
+    clear: both;
+}
+
+.main .divider {
+    width: 950px;
+    margin: 0 auto 10px;
+    border-bottom: 1px solid #EEEEEE;
+
+}
+
+.fenye {
+    overflow: hidden;
+    float: right;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.fenye p {
+    float: left;
+}
+
+.fenye .pg a, .fenye .pg strong, .fenye .pgb a, .fenye .pg label {
+    background-color: #FFFFFF;
+    background-repeat: no-repeat;
+    border: 1px solid #1c4283;
+    color: #434343;
+    display: inline;
+    float: left;
+    height: 26px;
+    min-width: 26px;
+    margin-left: 4px;
+    overflow: hidden;
+    text-decoration: none;
+    line-height: 26px;
+    font-family: "Microsoft YaHei", monospace;
+    font-size: 13px;
+    font-weight: normal;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 2px;
+    padding: 0px 3px 0px 3px;
+}
+
+.fenye .pg a:hover {
+    background-color: #1c4283;
+    color: white;
+}
+
+.fenye .pg .now {
+    background-color: #1c4283;
+    color: white;
+}
+
+.fenye label input {
+    _margin-top: 3px;
+}
+
+.content {
+    min-height: 380px;
+}
+
+.content .no_more_data {
+    margin: 10px auto 0 333px;
+    width: 284px;
+    float: left;
+}
+
+.content .loading {
+    margin: 115px auto 0 415.5px;
+    float: left;
+    width: 119px;
+}
+
+.content .no_more_data .text {
+    width: 284px;
+    text-align: center;
+    display: block;
+    font-family: Microsoft YaHei, monospace;
+    color: #434343;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.content .item_container {
+    border-bottom: 1px dashed #1c4283;
+    padding: 20px 10px 20px 10px;
+    font-size: 13px;
+}
+
+.content .item_container .content_container {
+    margin-bottom: 20px;
+    font-size: 13px;
+}
+
+.content .item_container .content_container .web_right_cent_b_wt_detail {
+    padding: 0 10px 5px;
+    vertical-align: middle;
+}
+
+.UserInput {
+    display: inline;
+    padding: 3px 20px 1px 20px;
+    min-width: 30px;
+    min-height: 16px;
+    line-height: 18px;
+    height: auto;
+    border-bottom: 1px solid black;
+    text-decoration: none;
+    zoom: 1;
+    background: #fff;
+    color: #127176;
+    font-size: 13px;
+}
+
+.MathTable {
+    border: 0 none;
+    direction: ltr;
+    display: inline;
+    float: none;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: normal;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-indent: 0;
+    text-transform: none;
+    white-space: nowrap;
+    word-spacing: normal;
+    word-wrap: normal;
+}
+
+.MathTable table {
+    border: 0 none;
+    border-collapse: collapse;
+    display: inline-block;
+    float: none;
+    font-size: inherit;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    margin: 0;
+    padding: 1px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.content .item_container .content_container .web_right_cent_b_dx {
+    padding: 5px 0px 5px 5px;
+    vertical-align: middle;
+}
+
+.content .item_container .content_container img {
+    vertical-align: middle;
+}
+
+.content .item_container .button {
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    float: right;
+    font-size: 13px;
+    color: white;
+    font-family: 'Microsoft YaHei', monospace;
+    line-height: 35px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.content .item_container .button img {
+    height:20px;
+    margin-top: 7px;
+}
+
+.content .item_container .add_favorite {
+    background-color: #fbca18;
+}
+
+.content .item_container .cancel_favorite {
+    background-color: #F05C75;
+}
+
+.content .item_container .check_detail {
+    background-color: #1c4283;
+}
+
+.content .web_right_cent_b_wt {
+    float: left;
+    font-weight: normal;
+    vertical-align: middle;
+    font-size: 13px;
+}
+
+.content .web_right_cent_b_wt .MathTable {
+    border: 0 none;
+    direction: ltr;
+    display: inline;
+    float: none;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: normal;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-indent: 0;
+    text-transform: none;
+    white-space: nowrap;
+    word-spacing: normal;
+    word-wrap: normal;
+}
+
+.content .web_right_cent_b_wt .MathTable table {
+    border-collapse: collapse;
+    margin: 0;
+    padding: 1px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: normal;
+    font-size: inherit;
+    font-style: normal;
+    font-weight: normal;
+    border: 0;
+    float: none;
+    display: inline-block;
+    zoom: 0
+}

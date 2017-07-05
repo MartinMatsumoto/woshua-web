@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>我刷！—刷题—更好用的题库</title>
+    <meta name="Generator" content="EditPlus"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11"/>
+    <meta name="viewport"
+          content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=0;user-scalable=yes"/>
+    <meta name="Author" content=""/>
+    <meta name="Keywords" content="数学，英语，语文，理科生，化学，生物，物理，文科生，历史，地理，政治，小学，初中，高中，大学，题库，刷题，组卷"/>
+    <meta name="Description"
+          content="我刷！－完全免费的新一代智能刷题神器，海量题库。我刷APP，功能强大，拥有海量题库，涵盖小学、初中、高中所有题库，是学生提分利器，老师组卷神器！"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link type="text/css" rel="Stylesheet" href="/praxis/css/index.css?9"/>
+    <link type="text/css" rel="Stylesheet" href="/praxis/css/header.css"/>
+    <link type="text/css" rel="Stylesheet" href="/praxis/css/footer.css"/>
+    <link type="text/css" rel="Stylesheet" href="/praxis/css/login_dialog.css"/>
+    <link rel="stylesheet" href="/praxis/css/swiper-3.3.1.min.css?9" />
+    <script src="/libs/swiper-3.3.1.min.js?2" type="text/javascript"></script>
+    <div th:replace="praxis/include/include"></div>
+    <script type="text/javascript" src="/praxis/js/header.js"></script>
+    <script type="text/javascript" src="/praxis/js/index.js"></script>
+</head>
+
+<body>
+<div th:replace="global/include/csrf_include"></div>
+<div th:replace="praxis/include/header"></div>
+
+<div class="banner_box swiper-container">
+    <div class="slider_box">
+        <ul class="slider_ul swiper-wrapper">
+            <li class="slider_li swiper-slide">
+                <a href="#">
+                    <img src="/praxis/images/1_01_rke8.jpg"/>
+                </a>
+            </li>
+            <li class="slider_li swiper-slide">
+                <a href="#">
+                    <img src="/praxis/images/1_01d_zpgb.jpg"/>
+                </a>
+            </li>
+            <li class="slider_li swiper-slide">
+                <a href="#">
+                    <img src="/praxis/images/1_01dvv_o1t4.jpg"/>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="focus_box swiper-pagination">
+        <span class="swiper-pagination-switch dot_style"></span>
+        <span class="swiper-pagination-switch dot_style"></span>
+        <span class="swiper-pagination-switch dot_style"></span>
+    </div>
+</div>
+<div class="subject">
+    <div class="container" id="item_container">
+        <div class="item">
+            <div class="item_image_container">
+                <img src="/praxis/images/chinese.png" alt="" />
+            </div>
+
+            <span class="item_subject">小学语文</span>
+            <span class="item_subject_pinyin">CHINESE</span>
+        </div>
+
+        <div class="item">
+            <div class="item_image_container">
+                <img src="/praxis/images/math.png" alt="" />
+            </div>
+
+            <span class="item_subject">初中数学</span>
+            <span class="item_subject_pinyin">MATH</span>
+        </div>
+
+        <div class="item">
+            <div class="item_image_container">
+                <img src="/praxis/images/english.png" alt="" />
+            </div>
+
+            <span class="item_subject">初中英语</span>
+            <span class="item_subject_pinyin">ENGLISH</span>
+        </div>
+
+        <div class="item">
+            <div class="item_image_container">
+                <img src="/praxis/images/physics.png" alt="" />
+            </div>
+
+            <span class="item_subject">高中物理</span>
+            <span class="item_subject_pinyin">PHYSICS</span>
+        </div>
+
+        <div class="item" style="margin-right: 0px;">
+            <div class="item_image_container">
+                <img src="/praxis/images/chemestry.png" alt="" />
+            </div>
+
+            <span class="item_subject">高中化学</span>
+            <span class="item_subject_pinyin">CHEMESTRY</span>
+        </div>
+
+        <div class="read_more_container">
+            <span class="read_more" id="read_more">READ&nbsp;MORE</span>
+        </div>
+    </div>
+</div>
+
+<div th:replace="praxis/include/footer"></div>
+<script type="text/javascript">
+    var mySwiper = new Swiper('.slider_box', {
+        direction: 'horizontal',
+        loop: true,
+        paginationClickable: true,
+        // 如果需要分页器
+        pagination: '.swiper-pagination',
+        bulletActiveClass: 'now',
+        autoplayDisableOnInteraction: false,
+        autoplay: 5000
+    });
+</script>
+</body>
+</html>

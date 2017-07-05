@@ -1,0 +1,175 @@
+li {
+    list-style: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.index_header {
+    height: 88px;
+    background-color: #1c4283;
+    overflow: visible;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    top: 0px;
+}
+
+.index_header .container {
+    width: 1000px;
+    overflow: visible;
+    margin: 0 auto;
+}
+
+.index_header .index_header_ul {
+    margin: 0 auto;
+    height: 100%;
+    float: right;
+}
+
+.index_header .index_header_ul .index_header_li {
+    width: 70px;
+    height: 86px;
+    margin-left: 20px;
+    margin-right: 20px;
+    float: left;
+    color: white;
+    text-align: center;
+    line-height: 88px;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: "Microsoft YaHei", monospace;
+}
+
+.index_header .index_header_ul .index_header_li:hover {
+    color: #ecb900;
+    border-bottom: 2px solid #ecb900;
+}
+
+.index_header .index_header_ul .now {
+    color: #ecb900;
+    border-bottom: 2px solid #ecb900;
+}
+
+.header_favor_box {
+    position: absolute;
+    width: 166px;
+    height: 166px;
+    background-color: white;
+    z-index: 888;
+}
+
+.header_favor_box img {
+    margin-left: 48px;
+    margin-top: 10px;
+    width: 70px;
+    cursor: pointer;
+}
+
+.header_favor_box .eng_text {
+    color: #1c4283;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.header_favor_box .chn_text {
+    color: #1c4283;
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.login_container {
+    float: right;
+    height: 88px;
+    width: 140px;
+}
+
+.login_container .login_user_container {
+    width: 130px;
+    text-align: center;
+    float: right;
+}
+
+.login_container .login_user_container .container {
+    height: 33px;
+    margin-top: 27.5px;
+    cursor: pointer;
+}
+
+.login_container .login_user_container .container .favorite_img {
+    width: 14px;
+    height: 14px;
+    border-radius: 0px;
+    margin: 9px 0 0 10px;
+}
+
+.login_container .login_user_container .container .favorite_text {
+    margin: 0px;
+}
+
+.login_container .login_user_container .container .favorite_text:hover {
+    color: #ecb900;
+    text-decoration: underline;
+}
+
+.login_container .login_user_container .container a {
+    line-height: 33px;
+    font-size: 12px;
+}
+
+.login_container .login_user_container .container img {
+    border-radius: 15px;
+    float: left;
+    width: 30px;
+    height: 30px;
+}
+
+.login_container .login_user_container .container span {
+    line-height: 33px;
+    height: 33px;
+    font-size: 12px;
+    float: left;
+}
+
+.login_container .login_button_container {
+    float: right;
+}
+
+.login_container .login_button_container .login_button {
+    color: #ecb900;
+}
+
+.login_container a {
+    display: block;
+    height: 88px;
+    text-align: center;
+    float: left;
+    line-height: 88px;
+    text-decoration: none;
+    font-size: 12px;
+    color: white;
+    cursor: pointer;
+}
+
+.login_container a:hover {
+    color: #ecb900;
+    text-decoration: underline;
+}
+
+.login_container span {
+    display: block;
+    height: 88px;
+    text-align: center;
+    float: left;
+    line-height: 88px;
+    text-decoration: none;
+    font-size: 12px;
+    color: white;
+    margin: 0 5px 0 5px;
+}

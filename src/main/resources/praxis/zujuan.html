@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>我刷！—刷题—更好用的题库</title>
+    <meta name="Generator" content="EditPlus"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11"/>
+    <meta name="viewport"
+          content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=0;user-scalable=yes"/>
+    <meta name="Author" content=""/>
+    <meta name="Keywords" content="数学，英语，语文，理科生，化学，生物，物理，文科生，历史，地理，政治，小学，初中，高中，大学，题库，刷题，组卷"/>
+    <meta name="Description"
+          content="我刷！－完全免费的新一代智能刷题神器，海量题库。我刷APP，功能强大，拥有海量题库，涵盖小学、初中、高中所有题库，是学生提分利器，老师组卷神器！"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link type="text/css" rel="Stylesheet" href="/praxis/css/general.css"/>
+    <link type="text/css" rel="Stylesheet" href="/praxis/css/zujuan.css"/>
+    <link type="text/css" rel="Stylesheet" href="/praxis/css/header.css"/>
+    <link type="text/css" rel="Stylesheet" href="/praxis/css/footer.css"/>
+    <link type="text/css" rel="Stylesheet" href="/praxis/css/login_dialog.css"/>
+    <div th:replace="praxis/include/include"></div>
+</head>
+<body>
+<div th:replace="praxis/include/header"></div>
+<div class="main">
+    <div class="title">
+        <span>在线组卷</span>
+    </div>
+
+    <div class="subtitle1">选择方式</div>
+    <div class="subtitle_underline">
+        <div class="yellow_line"></div>
+        <div class="gray_line"></div>
+        <div class="dot"></div>
+    </div>
+
+    <div class="select_container" id="select_type">
+        <span id="type_show"></span>
+        <div class="arrow"></div>
+    </div>
+
+    <ul class="choose_ul" id="choose_type">
+        <li th:each="type : ${types}" th:text="${type.desc}" th:attr="circle=${type.value}"></li>
+    </ul>
+
+    <div class="subtitle">选择科目</div>
+    <div class="subtitle_underline">
+        <div class="yellow_line"></div>
+        <div class="gray_line"></div>
+        <div class="dot"></div>
+    </div>
+
+    <div class="select_container" id="select_major">
+        <span id="major_show"></span>
+        <div class="arrow"></div>
+    </div>
+
+    <ul class="choose_ul" id="choose_major">
+        <li th:each="status : ${status}" th:text="${status.gradeName} + ${status.majorName}" th:attr="circle=${status.id}"></li>
+    </ul>
+
+    <div class="subtitle">选择试卷版式</div>
+    <div class="subtitle_underline">
+        <div class="yellow_line"></div>
+        <div class="gray_line"></div>
+        <div class="dot"></div>
+    </div>
+
+    <ul class="style_ul" id="paper_type">
+        <li th:each="type,typeStat : ${paperTypes}" th:class="${typeStat.index == 0} ? 'select'" th:attr="circle=${type.value}">
+            <span class="choose_title" th:if="${type.type == 0}">A4/B5竖版</span>
+            <span class="choose_title" th:if="${type.type == 1}">B4/A3横版</span>
+            <div class="icon_small" th:if="${type.type == 0}"></div>
+            <div class="icon_big" th:if="${type.type == 1}"></div>
+            <span class="detail" th:text="${type.desc}"></span>
+        </li>
+    </ul>
+    <div class="clear"></div>
+
+    <div class="subtitle">选择题型</div>
+    <div class="subtitle_underline">
+        <div class="yellow_line"></div>
+        <div class="gray_line"></div>
+        <div class="dot"></div>
+    </div>
+
+    <ul class="type_ul">
+        <li th:each="praxisType : ${praxisType}" th:attr="circle=${praxisType.id}">
+            <div class="label" th:text="${praxisType.name}"></div>
+            <div class="content">
+                <div class="decrease"></div>
+                <input type="number" value="0" max="20"/>
+                <div class="increase"></div>
+                <span>道题</span>
+            </div>
+        </li>
+    </ul>
+
+    <div class="clear"></div>
+    <div class="subtitle">选择难度系数</div>
+    <div class="subtitle_underline">
+        <div class="yellow_line"></div>
+        <div class="gray_line"></div>
+        <div class="dot"></div>
+    </div>
+
+    <div class="difficult_choose">
+        <div class="bg"></div>
+        <ul>
+            <li class="now">
+                <div class="blank"></div>
+                <div class="index"></div>
+                <span class="diff_num">1.00-0.86</span>
+                <span class="diff_text">容易</span>
+            </li>
+            <li>
+                <div class="blank"></div>
+                <div class="index"></div>
+                <span class="diff_num">0.85-0.71</span>
+                <span class="diff_text">较易</span>
+            </li>
+            <li>
+                <div class="blank"></div>
+                <div class="index"></div>
+                <span class="diff_num">0.70-0.56</span>
+                <span class="diff_text">中等</span>
+            </li>
+            <li>
+                <div class="blank"></div>
+                <div class="index"></div>
+                <span class="diff_num">0.55-0.41</span>
+                <span class="diff_text">较难</span>
+            </li>
+            <li>
+                <div class="blank"></div>
+                <div class="index"></div>
+                <span class="diff_num">0.40-0.26</span>
+                <span class="diff_text">困难</span>
+            </li>
+        </ul>
+
+        <div class="dot">
+            <div class="bg"></div>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="submit">选择知识点</div>
+    <div style="height: 50px"></div>
+</div>
+
+<div th:replace="global/include/csrf_include"></div>
+<div th:replace="praxis/include/footer"></div>
+<script type="text/javascript" src="/praxis/js/combine_page.js"></script>
+</body>
+</html>

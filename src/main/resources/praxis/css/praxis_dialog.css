@@ -1,0 +1,112 @@
+.praxis_dialog {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 200;
+    margin: 0 auto;
+}
+
+.praxis_dialog .close {
+    display: block;
+    cursor: pointer;
+    float: right;
+    margin: 5px 5px 0 0;
+    width: 50px;
+    height: 50px;
+    background: url(/praxis/images/close.png) no-repeat -88.5px 13.5px;
+}
+
+.praxis_dialog .close:hover {
+    background: url(/praxis/images/close.png) no-repeat -138.5px 13.5px;
+}
+
+.praxis_dialog .praxis_dialog_container {
+    width: 900px;
+    height: 500px;
+    z-index: 300;
+    left: 50%;
+    top: 50%;
+    margin-left: -450px;
+    margin-top: -250px;
+    background-color: white;
+    position: absolute;
+    border-radius: 5px;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.8);
+}
+
+.praxis_dialog .mask {
+    filter: alpha(opacity=60);
+    -moz-opacity: 0.6;
+    -khtml-opacity: 0.6;
+    opacity: 0.6;
+    height: 100%;
+    width: 100%;
+    background: black;
+    z-index: 200;
+}
+
+.praxis_dialog .scroll {
+    overflow-x: hidden;
+    overflow-y: auto;
+    float: left;
+    height: 445px;
+}
+
+.praxis_dialog .item_container {
+    width: 850px;
+    border-bottom: 1px dashed #1c4283;
+    font-size: 13px;
+    margin-left: 25px;
+    float: left;
+}
+
+.praxis_dialog .item_container .tips {
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    float: right;
+    font-family: "Microsoft YaHei", monospace;
+    font-size: 13px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    width: 65px;
+    float: left;
+    background-color: #FBCC1F;
+    margin-top: 20px;
+}
+
+.praxis_dialog .button {
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    float: right;
+    font-size: 13px;
+    color: white;
+    font-family: 'Microsoft YaHei', monospace;
+    line-height: 35px;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #1c4283;
+    margin: 20px;
+}
+
+.praxis_dialog .item_container .content_container {
+    font-size: 13px;
+    margin: 20px;
+    float: left;
+    width: 800px;
+}
+
+.praxis_dialog .item_container .add_favorite {
+    background-color: #fbca18;
+}
+
+.praxis_dialog .item_container .check_detail {
+    background-color: #1c4283;
+}
+
+.praxis_dialog .item_container .content_container img {
+    vertical-align: middle;
+}

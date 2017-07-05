@@ -1,0 +1,94 @@
+<div class="login_dialog" id="login_dialog" style="display: none;">
+    <div class="login_dialog_container">
+        <div class="header">
+            <span class="login_text" id="login_title">登录</span>
+
+            <div class="close" id="login_dialog_close"></div>
+        </div>
+
+        <div class="scroll" id="login_container" style="display: none">
+            <div class="left_container">
+                <div class="login_dialog_input_container">
+                    <span>账号：</span>
+                    <input placeholder="请输入账号" id="account_input" class="input_style"/>
+                    <span>密码：</span>
+                    <input placeholder="请输入密码" id="password_input" type="password" class="input_style"/>
+
+                    <div class="keep_login_container">
+                        <div class="keep_login" >
+                            <input type="checkbox" class="check_box" id="keep_login"/>
+                        </div>
+                        <label for="keep_login" class="keep_login_label">保持登录</label>
+                    </div>
+
+                    <div class="login_button" id="login_button">登录</div>
+                </div>
+            </div>
+            <div class="right_container">
+                <ul>
+                    <li><a href="#"><i class="wx"></i>微信登录</a></li>
+                    <li><a href="#"><i class="qq"></i>QQ登录</a></li>
+                    <li><a href="#"><i class="weibo"></i>微博登录</a></li>
+                    <li><a href="#"><i class="wy"></i>网易邮箱帐号登录</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="scroll" id="next_container" style="display: none">
+            <div class="next_container">
+                <div class="login_dialog_input_container">
+                    <span>昵称：</span>
+                    <input placeholder="给自己起一个昵称吧" class="input_style" id="nickname_input"/>
+                    <span>性别：</span>
+                    <div class="sex_container">
+                        <input type="radio" id="male_radio" name="sex" value="0"/><label for="male_radio">男</label>
+                        <input type="radio" id="female_radio" name="sex" value="1"/><label for="female_radio">女</label>
+                        <input type="radio" id="others_radio" name="sex" value="2"/><label for="female_radio">保密</label>
+                    </div>
+                    <span>您的职业：<bb id="career_name">其他</bb></span>
+                    <div class="career_container">
+                        <ul>
+                            <li><img id="other_user_type" src="/praxis/images/parent.png" class="career_header" alt="其他" title="其他"/><img class="is_choose" src="/praxis/images/notice_success.png"/></li>
+                            <li><img id="teacher_user_type" src="/praxis/images/teacher.png" class="career_header" alt="教师" title="教师"/><img class="is_choose display_none" src="/praxis/images/notice_success.png"/></li>
+                            <li><img id="student_user_type" src="/praxis/images/student.png" class="career_header" style="margin-right: 0px" alt="学生" title="学生"/><img src="/praxis/images/notice_success.png" class="is_choose display_none" style="margin: 0 0 0 -15px;"/></li>
+                        </ul>
+                    </div>
+                    <div style="clear: both;"></div>
+                    <div class="login_button button" id="register_confirm">确认注册</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll" id="register_container" style="display: none">
+            <div class="register_container">
+                <div class="login_dialog_input_container">
+                    <span>账号：</span>
+                    <input placeholder="请输入账号" class="input_style" id="register_account"/>
+                    <span>邮箱：</span>
+                    <input placeholder="请输入邮箱" class="input_style" id="register_email"/>
+                    <span>密码：</span>
+                    <input placeholder="请输入密码" class="input_style" id="register_password" type="password"/>
+                    <span>再次输入密码：</span>
+                    <input placeholder="再次输入密码" class="input_style" id="register_passwordnew" type="password"/>
+
+                    <div class="read_agreement_container">
+                        <div class="read_agreement" >
+                            <input type="checkbox" class="check_box" id="read_agreement"/>
+                        </div>
+                        <label for="read_agreement" class="read_agreement_label">我已阅读<a href="/mianze.php" target="_blank">免责声明</a>和<a href="/fuwu.php" target="_blank">服务条款</a></label>
+                    </div>
+                    <div style="clear: both;"></div>
+
+                    <div class="login_button" id="register_next">下一步</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="clear: both;"></div>
+        <div class="bottom">
+            <a class="register register_btn" id="goto_register">免费注册&nbsp;&nbsp;&gt;</a>
+            <a class="register login_btn" id="goto_login">&lt;&nbsp;&nbsp;已有账号</a>
+        </div>
+    </div>
+    <div class="mask"></div>
+</div>

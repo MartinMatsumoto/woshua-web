@@ -1,0 +1,37 @@
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ecb900;
+}
+
+.mianze_container .content .shake_hands {
+    width: 450px;
+    float: left;
+}
+
+.mianze_container .content .height {
+    height: 275px;
+}
+
+.mianze_container .content .divider {
+    width: 35px;
+    background-color: #FBCC1F;
+    float: left;
+}
+
+.mianze_container .content .right {
+    width: 465px;
+    background-color: #1c4283;
+    float: left;
+}
+
+.mianze_container .content .content_container {
+    margin-left: 30px
+}
+
+.mianze_container .content .content_container span {
+    color:white;
+}

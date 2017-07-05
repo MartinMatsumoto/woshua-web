@@ -1,0 +1,157 @@
+@charset "UTF-8";
+
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.banner_box {
+    width: 100%;
+    height: 604px;
+    top: 88px;
+}
+
+.banner_box .slider_box {
+    width: 1500px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.banner_box img {
+    height: 604px;
+}
+
+.swiper-pagination {
+    width: 100%;
+    margin-top: -50px;
+}
+
+.swiper-pagination .swiper-pagination-bullet {
+    border: 2px solid #fff;
+    cursor: pointer;
+    display: inline-block;
+    height: 12px;
+    line-height: 10px;
+    margin: 0 10px;
+    opacity: 1;
+    text-indent: -999em;
+    width: 12px;
+    background: transparent;
+}
+
+.swiper-pagination .now {
+    background-color: white;
+}
+
+.dot_style {
+    height: 12px;
+    width: 12px;
+}
+
+.subject {
+    width: 100%;
+    height: 500px;
+}
+
+.subject .container {
+    width: 1000px;
+    height: 300px;
+    margin: 200px auto 0;
+}
+
+.subject .container .item {
+    width: 130px;
+    float: left;
+    margin-right: 87.5px;
+    cursor: pointer;
+}
+
+.subject .container .read_more_container {
+    width: 160px;
+    height: 54px;
+    border: 2px solid #FBCC1F;
+    float: left;
+    margin-top: 50px;
+    margin-left: 420px;
+    background-color: white;
+}
+
+.subject .container .read_more_container {
+    width: 160px;
+    height: 54px;
+    border: 2px solid #FBCC1F;
+    float: left;
+    margin-top: 50px;
+    margin-left: 420px;
+}
+
+.subject .container .read_more_container:hover {
+    background-color: #FBCC1F;
+}
+
+.subject .container .read_more_container .read_more {
+    color: #FBCC1F;
+    text-align: center;
+    line-height: 54px;
+    width: 160px;
+    display: block;
+    cursor: pointer;
+}
+
+.subject .container .read_more_container .read_more:hover {
+    color: white;
+}
+
+.subject .container .item .item_image_container {
+     width: 100%;
+     height: 130px;
+     border-radius: 100%;
+     cursor: pointer;
+ }
+
+.subject .container .item .hover {
+    background-color: #1c4283;
+}
+
+.subject .container .item .item_image_container img {
+    width: 54px;
+    height: 54px;
+    float: left;
+    margin: 38px 0px 0px 38px;
+}
+
+.subject .container .item .item_subject {
+    width: 100%;
+    float: left;
+    text-align: center;
+    font-family: Microsoft YaHei;
+    font-size: 16px;
+    font-weight: normal;
+    color: #434343;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.subject .container .item .subject_hover {
+    color: #1c4283;
+}
+
+.subject .container .item .item_subject_pinyin {
+    width: 100%;
+    float: left;
+    text-align: center;
+    font-family: Microsoft YaHei;
+    font-size: 16px;
+    font-weight: normal;
+    color: rgb(217, 217, 217);
+    margin-top: 5px;
+}

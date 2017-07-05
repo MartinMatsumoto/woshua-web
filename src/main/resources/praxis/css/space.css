@@ -1,0 +1,165 @@
+@charset "UTF-8";
+
+body {
+    padding: 0px;
+    margin: 0px;
+    background-color: #EAF3ED;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+.main {
+    width: 1000px;
+    margin: 88px auto 100px auto;
+    overflow: visible;
+}
+
+.banner {
+    width: 100%;
+    height: 400px;
+    margin-top: 88px;
+    background: #EAF3ED url("/praxis/images/space_bg.jpg") no-repeat scroll center top;
+}
+
+.main .space_content {
+    width: 100%;
+    min-height: 500px;
+    border-radius: 3px;
+    background-color: white;
+    margin-top: -200px;
+    padding-bottom: 20px;
+}
+
+.main .space_content .header_container {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background-color: white;
+    margin-top: -100px;
+    padding: 5px;
+}
+
+.main .space_content .user_info {
+    height: 70px;
+    position: absolute;
+    margin-top: -70px;
+    text-align: center;
+    line-height: 70px;
+    margin-left: 220px;
+    color: #157c8c;
+}
+
+.main .space_content .user_info .margin {
+    margin-right: 20px;
+    font-size: 30px;
+}
+
+.main .space_content .user_info span {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.main .space_content .tips {
+    font-size: 15px;
+    color: #666;
+    margin-right: 5px;
+}
+
+.main .space_content .content_container {
+    width: 100%;
+}
+
+.main .space_content .content_container .title {
+    width: 100%;
+    height: 85px;
+}
+
+.main .space_content .content_container .title .title_text {
+    float: right;
+    margin-top: 25px;
+    line-height: 60px;
+    color: #157c8c;
+    margin-right: 60px;
+    font-weight: bold;
+}
+
+.main .space_content .content_container .left_menu {
+    width: 180px;
+    min-height: 500px;
+    padding: 10px 10px 0 0;
+    margin-top: 25px;
+    border-right: 1px solid #C7E5EB;
+    float: left;
+}
+
+.main .space_content .content_container .right_container {
+    width: 760px;
+    min-height: 500px;
+    border-top: 1px solid #C7E5EB;
+    float: left;
+    margin-left: 20px;
+}
+
+.main .space_content .content_container .left_menu .menu {
+    float: left;
+    margin-top: 15px;
+    padding: 10px 0;
+    width: 185px;
+}
+
+.main .space_content .content_container .left_menu .menu li {
+    height: 55px;
+    margin: 2px auto 2px 0;
+    width: 175px;
+}
+
+.main .space_content .content_container .left_menu .menu a {
+    background-color: #fff;
+    color: #999;
+    cursor: pointer;
+    display: block;
+    font-size: 14px;
+    height: 55px;
+    line-height: 55px;
+    text-align: right;
+    width: 175px;
+    text-decoration: none;
+}
+
+.main .space_content .content_container .left_menu .menu .now {
+    background-color: #edf2f8;
+    color: #157c8c;
+}
+
+.main .space_content .content_container .left_menu .menu :hover {
+    background-color: #edf2f8;
+    color: #157c8c;
+}
+
+.main .space_content .content_container .left_menu .menu a span {
+    display: block;
+    float: right;
+    padding-right: 54px;
+}
+
+.loading_space{
+    margin: 115px auto 0 320px;
+    float: left;
+    width: 119px;
+}
+
+.no_more_data_space {
+    margin: 10px auto 0 238px;
+    width: 284px;
+    float: left;
+}

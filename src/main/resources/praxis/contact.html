@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>我刷！—刷题—更好用的题库</title>
+    <meta name="Generator" content="EditPlus"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11"/>
+    <meta name="viewport"
+          content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=0;user-scalable=yes"/>
+    <meta name="Author" content=""/>
+    <meta name="Keywords" content="数学，英语，语文，理科生，化学，生物，物理，文科生，历史，地理，政治，小学，初中，高中，大学，题库，刷题，组卷"/>
+    <meta name="Description"
+          content="我刷！－完全免费的新一代智能刷题神器，海量题库。我刷APP，功能强大，拥有海量题库，涵盖小学、初中、高中所有题库，是学生提分利器，老师组卷神器！"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link type="text/css" rel="Stylesheet" href="/praxis/css/header.css"/>
+    <link type="text/css" rel="Stylesheet" href="/praxis/css/footer.css"/>
+    <link type="text/css" rel="Stylesheet" href="/praxis/css/mianze.css"/>
+    <link type="text/css" rel="Stylesheet" href="/praxis/css/contact.css"/>
+    <link type="text/css" rel="Stylesheet" href="/praxis/css/login_dialog.css"/>
+    <div th:replace="praxis/include/include"></div>
+    <script type="text/javascript">
+        //<![CDATA[
+        window.jQuery || document.write("<script src='http://api.map.baidu.com/api?v=2.0&ak=Ndcgn2ltp8kXkG2Ip599tREPa3lNrhic'>"+"<"+"/script>");
+        //]]>
+    </script>
+</head>
+
+<body>
+<div th:replace="praxis/include/header"></div>
+
+<div class="mianze_container">
+    <div class="wp_title_content">
+        <div class="wp_title">
+            <span class="text_container">
+                <strong><span class="text_left">关于</span></strong><strong><span class="text_right">我们</span></strong>
+            </span>
+        </div>
+        <div class="text_bttom_container">
+            <span class="text_bttom">ABOUT US</span>
+        </div>
+    </div>
+
+    <div class="content">
+        <img src="/praxis/images/contact.jpg" class="shake_hands height" alt=""/>
+
+        <div class="divider height"></div>
+        <div class="right height">
+            <div class="content_container">
+                <p><span>QQ：021-8123456X</span></p>
+
+                <p><span>邮箱：021-8123456X</span></p>
+
+                <p><span>官方微博账号：<a href="http://weibo.com" target="_blank">@我刷网</a> <a href="http://weibo.com" target="_blank">@我刷题库</a></span></p>
+
+                <p><span>关注微信公众号</span></p>
+                <img src="/praxis/images/erweima.jpg" style="width: 110px;" alt=""/>
+            </div>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+    <div id="map_container" class="map_container"></div>
+    <script type="text/javascript">
+        var map = new BMap.Map("map_container");          // 创建地图实例
+        var point = new BMap.Point(104.0772390000,30.5551800000);  // 创建点坐标
+        map.centerAndZoom(point, 15);                 // 初始化地图，设置中心点坐标和地图级别
+
+        map.addControl(new BMap.NavigationControl());
+        map.addControl(new BMap.ScaleControl());
+        map.addControl(new BMap.OverviewMapControl());
+        // 启用滚轮放大缩小
+        map.enableScrollWheelZoom();
+
+        var marker = new BMap.Marker(point);  // 创建标注
+        var opts = {
+            width : 100,     // 信息窗口宽度
+            height: 70,     // 信息窗口高度
+            enableMessage:true,//设置允许信息窗发送短息
+        }
+        var infoWindow = new BMap.InfoWindow("地址：成都天府软件园A区15层", opts);  // 创建信息窗口对象
+        marker.addEventListener("click", function(){
+            map.openInfoWindow(infoWindow,point); //开启信息窗口
+        });
+
+        map.addOverlay(marker);               // 将标注添加到地图中
+        marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+    </script>
+</div>
+
+<div th:replace="praxis/include/footer"></div>
+</body>
+<script type="text/javascript" src="/praxis/js/header.js"></script>
+</html>
