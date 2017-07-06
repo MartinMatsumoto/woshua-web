@@ -1,0 +1,80 @@
+update praxis SET type = 17 WHERE type = "单选题";
+update praxis SET type = 17 WHERE type = "单项选择";
+update praxis SET type = 18 WHERE type = "多选题";
+update praxis SET type = 19 WHERE type = "填空题";
+update praxis SET type = 20 WHERE type = "解答题";
+update praxis SET type = 21 WHERE type = "计算题";
+update praxis SET type = 22 WHERE type = "证明题";
+update praxis SET type = 23 WHERE type = "综合题";
+update praxis SET type = 24 WHERE type = "其他";
+update praxis SET type = 24 WHERE type = "其他题型";
+update praxis SET type = 24 WHERE type = "作文";
+update praxis SET type = 25 WHERE type = "短文改错";
+update praxis SET type = 26 WHERE type = "现代文阅读";
+update praxis SET type = 27 WHERE type = "诗歌鉴赏";
+update praxis SET type = 28 WHERE type = "判断题";
+update praxis SET type = 29 WHERE type = "语言表达";
+
+INSERT INTO maptree VALUES (27,"诗歌鉴赏","诗歌鉴赏",16);
+INSERT INTO maptree VALUES (25,"短文改错","短文改错",16);
+INSERT INTO maptree VALUES (26,"现代文阅读","现代文阅读",16);
+INSERT INTO maptree VALUES (28,"判断题","判断题",16);
+INSERT INTO maptree VALUES (29,"语言表达","语言表达",16);
+
+SELECT * FROM praxis WHERE type NOT IN (17,18,19,20,21,22,23,24,25,26,27,28,29);
+
+ALTER TABLE `praxis` ADD COLUMN `grade` BIGINT(11) NULL DEFAULT 0 AFTER `type`;
+UPDATE praxis SET grade = 14 WHERE position LIKE "%初中%";
+UPDATE praxis SET grade = 13 WHERE position LIKE "%小学%";
+UPDATE praxis SET grade = 15 WHERE position LIKE "%高中%";
+
+SELECT * FROM praxis WHERE type =0;
+
+ALTER TABLE `praxis` ADD COLUMN `major` BIGINT(11) NULL DEFAULT 0 AFTER `grade`;
+update praxis SET major = 4 WHERE position LIKE "%语文%";
+update praxis SET major = 5 WHERE position LIKE "%数学%";
+update praxis SET major = 6 WHERE position LIKE "%英语%";
+update praxis SET major = 7 WHERE position LIKE "%物理%";
+update praxis SET major = 8 WHERE position LIKE "%化学%";
+update praxis SET major = 9 WHERE position LIKE "%生物%";
+update praxis SET major = 10 WHERE position LIKE "%政治%";
+update praxis SET major = 11 WHERE position LIKE "%历史%";
+update praxis SET major = 12 WHERE position LIKE "%地理%";
+
+//SELECT * FROM praxis WHERE major =0;
+alter table `praxis` drop column position;
+
+//SELECT * FROM praxis WHERE major = null
+
+UPDATE praxis SET type = 19 WHERE type = 25
+DELETE FROM maptree WHERE id = 25
+
+ALTER TABLE `users` ADD COLUMN `icon_path` VARCHAR(100) NULL DEFAULT NULL;
+
+UPDATE users SET user_type = '0'
+
+
+//习题表加索引 id   praxis_id_index
+//更改 user_statistic 表  增加id字段
+
+ALTER TABLE `catalogue` ADD COLUMN `grade` BIGINT(11) NULL DEFAULT 0 AFTER `position`;
+
+ALTER TABLE `catalogue` ADD COLUMN `major` BIGINT(11) NULL DEFAULT 0 AFTER `position`;
+
+UPDATE catalogue SET grade = 14 WHERE position LIKE "%初中%";
+UPDATE catalogue SET grade = 13 WHERE position LIKE "%小学%";
+UPDATE catalogue SET grade = 15 WHERE position LIKE "%高中%";
+
+update catalogue SET major = 4 WHERE position LIKE "%语文%";
+update catalogue SET major = 5 WHERE position LIKE "%数学%";
+update catalogue SET major = 6 WHERE position LIKE "%英语%";
+update catalogue SET major = 7 WHERE position LIKE "%物理%";
+update catalogue SET major = 8 WHERE position LIKE "%化学%";
+update catalogue SET major = 9 WHERE position LIKE "%生物%";
+update catalogue SET major = 10 WHERE position LIKE "%政治%";
+update catalogue SET major = 11 WHERE position LIKE "%历史%";
+update catalogue SET major = 12 WHERE position LIKE "%地理%";
+
+alter table `catalogue` drop column position;
+
+UPDATE catalogue SET major = 5 WHERE grade = 13 AND major = 0;

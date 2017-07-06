@@ -7,74 +7,9 @@
         <div>按知识点分类</div>
     </div>
 
-    <ul class="content">
-        <li>
-            <div class="item padding_child" title="知识点一">
-                <span>知识点一</span>
-                <i class="catalogue_up"></i>
-            </div>
-            <ul class="margin_child line">
-                <li>
-                    <div class="item padding_child" title="知识点一">
-                        <span>知识点一</span>
-                        <i class="catalogue_up"></i>
-                    </div>
-                </li>
+    <div class="content">
+        <ul class="margin_child line" th:replace="praxis/include/catalogue_template :: catalogue_template(${catalogues})">
 
-                <li>
-                    <div class="item padding_child" title="知识点一">
-                        <span>知识点一</span>
-                        <i class="catalogue_up"></i>
-                    </div>
-                    <ul class="margin_child line">
-                        <li>
-                            <div class="item padding_child" title="知识点一">
-                                <span>知识点一</span>
-                                <i class="catalogue_up"></i>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="item padding_child" title="知识点一">
-                                <span>知识点一</span>
-                                <i class="catalogue_up"></i>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="item padding_child" title="知识点一">
-                                <span>知识点一</span>
-                                <i class="catalogue_up"></i>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <div class="item padding_child" title="知识点一">
-                        <span>知识点一</span>
-                        <i class="catalogue_up"></i>
-                    </div>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <div class="item padding_child" title="知识点一">
-                <span>知识点一</span>
-                <i class="catalogue_up"></i>
-            </div>
-        </li>
-        <li>
-            <div class="item padding_child" title="知识点一">
-                <span>知识点一</span>
-                <i class="catalogue_up"></i>
-            </div>
-        </li>
-        <li>
-            <div class="item padding_child" title="知识点一">
-                <span>知识点一</span>
-                <i class="catalogue_up"></i>
-            </div>
-        </li>
-    </ul>
+        </ul>
+    </div>
 </div>
