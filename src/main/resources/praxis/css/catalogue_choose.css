@@ -3,25 +3,37 @@
     width: 300px;
     height: 500px;
     background-color: white;
-    right: 0px;
+    right: -324px;
     top: 50%;
     margin-top: -200px;
     border: 1px solid #fbca18;
 }
 
-.catalogue_choose_container .close {
+.catalogue_close {
     width: 24px;
     height: 88px;
     position: absolute;
     margin-left: -24px;
-    margin-top: 182px;
+    margin-top: 200px;
     background: url(/praxis/images/small_widget.png) no-repeat -46px 0;
     cursor: pointer;
     color: white;
     text-align: center;
 }
 
-.catalogue_choose_container .close span {
+.catalogue_open {
+    width: 24px;
+    height: 88px;
+    position: fixed;
+    right: 0px;
+    top: 332px;
+    background: url(/praxis/images/small_widget.png) no-repeat -46px 0;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+}
+
+.catalogue_close_open_span {
     display: block;
     height: 42px;
     margin-top: 21px;
@@ -76,6 +88,11 @@
     height: 35px;
 }
 
+.catalogue_choose_container .content li .choose{
+    background-color: #1c4283;
+    color: white;
+}
+
 .catalogue_choose_container .content li .item span{
     max-width: 230px;
     display: inline-block;
@@ -88,6 +105,7 @@
 
 .catalogue_choose_container .content li .item:hover {
     background-color: #D1E1FD;
+    color: #1c4283;
 }
 
 .catalogue_choose_container .content .catalogue_up {
@@ -97,4 +115,17 @@
     float: right;
     margin-top: 7px;
     background: url(/praxis/images/small_widget.png) no-repeat 0 0;
+}
+
+.catalogue_choose_container .content .catalogue_down {
+    width: 20px;
+    height: 20px;
+    display: block;
+    float: right;
+    margin-top: 7px;
+    background: url(/praxis/images/small_widget.png) no-repeat -20px 0;
+}
+
+.catalogue_hide{
+    display: none;
 }

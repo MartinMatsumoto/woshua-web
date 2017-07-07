@@ -1,12 +1,10 @@
-<ul class="margin_child line" th:fragment="catalogue_template(catalogues)">
+<ul th:fragment="catalogue_template(catalogues,hidden)" th:class="${hidden} ? 'margin_child line catalogue_hide' : 'margin_child line'">
     <li th:each="child : ${catalogues}">
-        <div class="item padding_child" th:attr="title=${child.name},open=false">
+        <div class="item padding_child" th:attr="title=${child.name},parent=${child.parent.id},type=${child.type}">
             <span th:text="${child.name}"></span>
             <i class="catalogue_up" title="展开" th:if="!${child.isLeaf()}"></i>
         </div>
-        <ul class="margin_child line" th:replace="praxis/include/catalogue_template::catalogue_template(${child.children})">
+        <ul class="margin_child line" th:replace="praxis/include/catalogue_template::catalogue_template(${child.children},true)">
         </ul>
     </li>
 </ul>
-
-<div th:fragment="test">eee</div>

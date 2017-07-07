@@ -20,22 +20,6 @@ public class CatalogueServiceImpl implements CatalogueService {
 
     @Override
     public List<Catalogue> listCatalogue(MapTree grade, MapTree major, Catalogue parent) {
-        return null;
-//        return catalogueRepository.findByGradeAndMajorAndParent(grade, major, parent);
-    }
-
-    @Override
-    public List<Catalogue> listCatalogueInit() {
-        MapTree grade = new MapTree();
-        grade.setId(MapTree.CHUZHONG);
-
-        MapTree major = new MapTree();
-        major.setId(MapTree.MATH);
-
-        Catalogue parent = new Catalogue();
-        //TODO
-        parent.setId(1576L);
-
         Catalogue catalogue = new Catalogue();
         catalogue.setParent(parent);
         catalogue.setGrade(grade);

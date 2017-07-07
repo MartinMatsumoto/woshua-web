@@ -1,15 +1,20 @@
-<div class="catalogue_choose_container">
-    <div class="close" id="catalogue_close">
-        <span>收起</span>
+<div class="catalogue_choose_container" id="catalogue_choose_container">
+    <div class="catalogue_close" id="catalogue_close">
+        <span class="catalogue_close_open_span">收起</span>
     </div>
     <div class="header">
         <div class="choose">按教材分类</div>
         <div>按知识点分类</div>
     </div>
 
-    <div class="content">
-        <ul class="margin_child line" th:replace="praxis/include/catalogue_template :: catalogue_template(${catalogues})">
+    <div class="content" id="catalogue_content">
+        <ul class="margin_child line" th:replace="praxis/include/catalogue_template :: catalogue_template(${catalogues},false)">
 
         </ul>
     </div>
+</div>
+
+
+<div class="catalogue_open" id="catalogue_open">
+    <span class="catalogue_close_open_span">展开</span>
 </div>

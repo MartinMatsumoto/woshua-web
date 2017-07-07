@@ -51,7 +51,7 @@ public class PraxisViewController extends BaseController {
         List<MapTree> grades = mapTreeService.listGrades();
         List<MapTree> deciplines = mapTreeService.listDeciplines();
         List<MapTree> praxisType = mapTreeService.listPraxisType();
-        List<Catalogue> catalogues = catalogueService.listCatalogueInit();
+        List<Catalogue> catalogues = catalogueService.listCatalogue(new MapTree((MapTree.CHUZHONG)), new MapTree((MapTree.MATH)), new Catalogue(0L));
 
         ModelAndView modelAndView = new ModelAndView("praxis/tiku");
         modelAndView.addObject("grades", grades);

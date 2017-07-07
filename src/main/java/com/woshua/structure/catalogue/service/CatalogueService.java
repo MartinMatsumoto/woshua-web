@@ -11,6 +11,4 @@ import java.util.List;
 public interface CatalogueService {
 
     public List<Catalogue> listCatalogue(MapTree grade, MapTree major, Catalogue parent);
-
-    public List<Catalogue> listCatalogueInit();
 }

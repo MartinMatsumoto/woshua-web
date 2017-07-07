@@ -72,6 +72,12 @@ public class MapTree extends BaseEntity {
     @OrderBy("id")
     private Set<MapTree> children;
 
+    public MapTree(){}
+
+    public MapTree(Long id){
+        this.id = id;
+    }
+
     public Long getId() {
         return id;
     }
@@ -96,8 +102,6 @@ public class MapTree extends BaseEntity {
         this.intro = intro;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "parent_id")
     public MapTree getParent() {
         return parent;
     }
@@ -106,8 +110,6 @@ public class MapTree extends BaseEntity {
         this.parent = parent;
     }
 
-    @OneToMany(mappedBy = "parent")
-    @OrderBy("id")
     public Set<MapTree> getChildren() {
         return children;
     }

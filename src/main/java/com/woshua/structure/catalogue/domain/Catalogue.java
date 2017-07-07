@@ -12,8 +12,6 @@ import java.util.List;
 @Entity(name = "catalogue")
 public class Catalogue extends BaseEntity {
 
-    public static Long MATH_ROOT = 8L;
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -30,6 +28,15 @@ public class Catalogue extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent")
     private Catalogue parent;
+    private int type;
+
+    public Catalogue(){
+
+    }
+
+    public Catalogue(Long id){
+        this.id = id;
+    }
 
     public Long getId() {
         return id;
@@ -77,6 +84,14 @@ public class Catalogue extends BaseEntity {
 
     public void setChildren(List<Catalogue> children) {
         this.children = children;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     /**

@@ -12,7 +12,7 @@ define(function (require, exports, module) {
 
         "use strict";
         // define JQueryTween main object
-        var tweens = [], JQueryTween = function (item, options, callback, special) {
+        var tweens = [], JQueryTween = function( item, options, callback, special ) {
 
             //get some variables
             var sct = gSC(window);
@@ -21,39 +21,39 @@ define(function (require, exports, module) {
             var css = getComputedStyle(el, null);
 
             // these are the default start values for all tweens if not specified by user call
-            var ops = $.extend(true, {
+            var ops = $.extend(true,{
                 from: {
-                    opacity: 1, // integer
-                    width: '', // integer/px/%
-                    height: '', // integer/px/%
-                    color: '', //hex/rgb
-                    backgroundColor: '', //hex/rgb
-                    position: {top: '', right: '', bottom: '', left: ''}, // integer/%
-                    backgroundPosition: {x: '', y: ''}, // integer/%/string[left,center,bottom,etc]
-                    translate: {x: 0, y: 0, z: 0}, // integer only
-                    rotate: {x: 0, y: 0, z: 0}, // integer only
-                    scale: 1, // integer only
-                    scroll: $(sct).scrollTop(), // integer only
+                    opacity		: 1, // integer
+                    width		: '', // integer/px/%
+                    height		: '', // integer/px/%
+                    color		: '', //hex/rgb
+                    backgroundColor : '', //hex/rgb
+                    position	: {top:'',right:'',bottom:'',left:''}, // integer/%
+                    backgroundPosition: {x:'',y:''}, // integer/%/string[left,center,bottom,etc]
+                    translate	: {x:0, y:0, z:0}, // integer only
+                    rotate		: {x:0, y:0, z:0}, // integer only
+                    scale		: 1, // integer only
+                    scroll		: $(sct).scrollTop(), // integer only
                 },
                 to: {
-                    opacity: '',
-                    width: '',
-                    height: '',
-                    color: '',
-                    backgroundColor: '',
-                    position: {top: '', right: '', bottom: '', left: ''},
+                    opacity		: '',
+                    width		: '',
+                    height		: '',
+                    color		: '',
+                    backgroundColor : '',
+                    position	: {top:'',right:'',bottom:'',left:''},
                     backgroundPosition: {x: '', y: ''},
-                    translate: {x: '', y: '', z: ''},
-                    rotate: {x: '', y: '', z: ''},
-                    scale: '',
-                    scroll: '',
+                    translate	: {x:'', y:'', z:''},
+                    rotate		: {x:'', y:'', z:''},
+                    scale		: '',
+                    scroll		: '',
                 },
-                easing: TWEEN.Easing.Linear.None, // we need to wrap in quotes the Easing function as jQuery does not recognize it as defined variable
-                delay: 0,
-                duration: 500,
-                repeat: 0,	// 0 / n / 'Infinity'
-                yoyo: false,
-            }, options);
+                easing			: TWEEN.Easing.Linear.None, // we need to wrap in quotes the Easing function as jQuery does not recognize it as defined variable
+                delay			: 0,
+                duration		: 500,
+                repeat			: 0,	// 0 / n / 'Infinity'
+                yoyo			: false,
+            }, options );
 
             //redefine supported properties
             var ofo = ops.from.opacity;
@@ -97,10 +97,10 @@ define(function (require, exports, module) {
             var otsc = ops.to.scroll;
 
             //properly process repeat and handle yoyo
-            if (ops.repeat === 0 && ops.yoyo === true) {
+            if ( ops.repeat === 0 && ops.yoyo === true ) {
                 rpv = 1;
             } else {
-                if (!$.isNumeric(ops.repeat) && ops.repeat !== 'Infinity') { // if misstyped
+                if ( !$.isNumeric(ops.repeat) && ops.repeat !== 'Infinity' ) { // if misstyped
                     rpv = 0;
                 } else {
                     rpv = eval(ops.repeat);
@@ -108,9 +108,7 @@ define(function (require, exports, module) {
             }
 
             //fix the scrolling being interrupted via mousewheel
-            if (cv(otsc)) {
-                $('body').addClass('scrolling');
-            }
+            if ( cv(otsc) ) { $('body').addClass('scrolling'); }
 
             //from/initial values
             var icor = cv(ofc) ? parseInt(pc(ofc)[0]) : parseInt(truC(css.color).match(/\d+/g)[0]);
@@ -121,37 +119,35 @@ define(function (require, exports, module) {
             var ibcg = cv(ofbc) ? parseInt(pc(ofbc)[1]) : parseInt(truC(css.backgroundColor).match(/\d+/g)[1]);
             var ibcb = cv(ofbc) ? parseInt(pc(ofbc)[2]) : parseInt(truC(css.backgroundColor).match(/\d+/g)[2]);
 
-            var iwi = cv(ofw) ? truD(ofw)[0] : truD(css.width)[0];
-            var ihe = cv(ofh) ? truD(ofh)[0] : truD(css.width)[0];
+            var iwi	= cv(ofw) ? truD(ofw)[0] : truD( css.width )[0];
+            var ihe	= cv(ofh) ? truD(ofh)[0] : truD( css.width )[0];
 
             var ito = cv(oft) ? truD(oft)[0] : '';
-            var iri = cv(ofr) ? truD(ofr)[0] : '';
-            var ibo = cv(ofb) ? truD(ofb)[0] : '';
-            var ile = cv(ofl) ? truD(ofl)[0] : '';
+            var iri	= cv(ofr) ? truD(ofr)[0] : '';
+            var ibo	= cv(ofb) ? truD(ofb)[0] : '';
+            var ile	= cv(ofl) ? truD(ofl)[0] : '';
 
             var ibx, iby, bx, by;
-            if (cv(otbx) || cv(otby)) {
-                ibx = cv(ofbx) ? truX(ofbx) : bPos(el)[0];
-                iby = cv(ofby) ? truY(ofby) : bPos(el)[1];
+            if ( cv( otbx ) || cv( otby ) ) {
+                ibx	= cv( ofbx ) ? truX(ofbx) : bPos(el)[0];
+                iby	= cv( ofby ) ? truY(ofby) : bPos(el)[1];
             } else {
-                ibx = '';
-                iby = '';
+                ibx	= '';
+                iby	= '';
             }
 
-            var tr3d, tx, ty, tz, itx, ity, itz;
-            if (cv(ottx) || cv(otty) || cv(ottz)) {
-                itx = cv(oftx) ? truD(oftx)[0] : 0;
-                ity = cv(ofty) ? truD(ofty)[0] : 0;
-                itz = cv(oftz) ? truD(oftz)[0] : 0;
+            var tr3d,tx,ty,tz,itx,ity,itz;
+            if ( cv( ottx ) || cv( otty ) || cv( ottz ) ) {
+                itx	= cv(oftx) ? truD(oftx)[0] : 0;
+                ity	= cv(ofty) ? truD(ofty)[0] : 0;
+                itz	= cv(oftz) ? truD(oftz)[0] : 0;
             } else {
-                itx = '';
-                ity = '';
-                itz = '';
+                itx = ''; ity = ''; itz = '';
             }
 
-            var irx = cv(ofrx) ? truD(ofrx)[0] : ''; //always deg
-            var iry = cv(ofry) ? truD(ofry)[0] : '';
-            var irz = cv(ofrz) ? truD(ofrz)[0] : '';
+            var irx = cv(ofrx) ? truD(ofrx)[0] :''; //always deg
+            var iry = cv(ofry) ? truD(ofry)[0] :'';
+            var irz = cv(ofrz) ? truD(ofrz)[0] :'';
 
             var isa = ofs; // always int
             var iop = ofo;
@@ -167,132 +163,76 @@ define(function (require, exports, module) {
             var bcg = cv(otbc) ? parseInt(pc(otbc)[1]) : '';
             var bcb = cv(otbc) ? parseInt(pc(otbc)[2]) : '';
 
-            var wi = cv(otw) ? truD(otw)[0] : '';
-            var he = cv(oth) ? truD(oth)[0] : '';
+            var wi	= cv( otw ) ? truD(otw)[0] : '';
+            var he	= cv( oth ) ? truD(oth)[0] : '';
 
-            var top = cv(ott) ? truD(ott)[0] : '';
-            var ri = cv(otr) ? truD(otr)[0] : '';
-            var bo = cv(otb) ? truD(otb)[0] : '';
-            var le = cv(otl) ? truD(otl)[0] : '';
+            var top	= cv(ott) ? truD(ott)[0] : '';
+            var ri	= cv(otr) ? truD(otr)[0] : '';
+            var bo	= cv(otb) ? truD(otb)[0] : '';
+            var le	= cv(otl) ? truD(otl)[0] : '';
 
-            if (cv(otbx) || cv(otby)) {
-                bx = cv(otbx) ? truX(otbx) : ibx;
-                by = cv(otby) ? truY(otby) : iby;
+            if ( cv( otbx ) || cv( otby ) ) {
+                bx	= cv( otbx ) ? truX(otbx) : ibx;
+                by	= cv( otby ) ? truY(otby) : iby;
             } else {
-                bx = '';
-                by = '';
+                bx	= '';
+                by	= '';
             }
 
-            if (cv(ottx) || cv(otty) || cv(ottz)) {
-                tx = cv(ottx) ? truD(ottx)[0] : 0;
-                ty = cv(otty) ? truD(otty)[0] : 0;
-                tz = cv(ottz) ? truD(ottz)[0] : 0;
+            if ( cv( ottx ) || cv( otty ) || cv( ottz ) ) {
+                tx	= cv( ottx ) ? truD(ottx)[0] : 0;
+                ty	= cv( otty ) ? truD(otty)[0] : 0;
+                tz	= cv( ottz ) ? truD(ottz)[0] : 0;
             } else {
-                tx = '';
-                ty = '';
-                tz = '';
+                tx = ''; ty = ''; tz = '';
             }
 
-            var rx = cv(otrx) ? otrx : '';
-            var ry = cv(otry) ? otry : '';
-            var rz = cv(otrz) ? otrz : '';
+            var rx = cv( otrx ) ? otrx : '';
+            var ry = cv( otry ) ? otry : '';
+            var rz = cv( otrz ) ? otrz : '';
 
-            var sa = cv(ots) ? ots : '';
-            var op = cv(oto) ? oto : '';
-            var sc = cv(otsc) ? otsc : '';
+            var sa 	= cv( ots ) ?  ots : '';
+            var op 	= cv( oto ) ? oto : '';
+            var sc 	= cv( otsc ) ? otsc : '';
 
             //check unit
-            var wiu = cv(wi) ? truD(otw)[1] : '';
-            var heu = cv(he) ? truD(oth)[1] : '';
+            var wiu	= cv( wi ) ? truD(otw)[1] : '';
+            var heu	= cv( he ) ? truD(oth)[1] : '';
 
-            var tou = cv(ott) ? truD(ott)[1] : '';
-            var riu = cv(otr) ? truD(otr)[1] : '';
-            var bou = cv(otb) ? truD(otb)[1] : '';
-            var leu = cv(otl) ? truD(otl)[1] : '';
+            var tou	= cv( ott ) ? truD(ott)[1] : '';
+            var riu	= cv( otr ) ? truD(otr)[1] : '';
+            var bou	= cv( otb ) ? truD(otb)[1] : '';
+            var leu	= cv( otl ) ? truD(otl)[1] : '';
 
-            var txu = cv(tx) ? truD(ottx)[1] : '';
-            var tyu = cv(ty) ? truD(otty)[1] : '';
-            var tzu = cv(tz) ? truD(ottz)[1] : '';
+            var txu	= cv( tx ) ? truD(ottx)[1] : '';
+            var tyu	= cv( ty ) ? truD(otty)[1] : '';
+            var tzu	= cv( tz ) ? truD(ottz)[1] : '';
 
             // init tween.js
             animateTween();
 
-            var from = {
-                w: iwi,
-                h: ihe,
-                t: ito,
-                r: iri,
-                b: ibo,
-                l: ile,
-                colr: icor,
-                colg: icog,
-                colb: icob,
-                bgr: ibcr,
-                bgg: ibcg,
-                bgb: ibcb,
-                bgX: ibx,
-                bgY: iby,
-                scale: isa,
-                trX: itx,
-                trY: ity,
-                trZ: itz,
-                roX: irx,
-                roY: iry,
-                roZ: irz,
-                opacity: iop,
-                scroll: isc
-            };
-            var target = {
-                w: wi,
-                h: he,
-                t: top,
-                r: ri,
-                b: bo,
-                l: le,
-                colr: cor,
-                colg: cog,
-                colb: cob,
-                bgr: bcr,
-                bgg: bcg,
-                bgb: bcb,
-                bgX: bx,
-                bgY: by,
-                scale: sa,
-                trX: tx,
-                trY: ty,
-                trZ: tz,
-                roX: rx,
-                roY: ry,
-                roZ: rz,
-                opacity: op,
-                scroll: sc
-            };
+            var from = { w: iwi, h: ihe, t: ito, r: iri, b: ibo, l: ile, colr: icor, colg: icog, colb: icob, bgr: ibcr, bgg: ibcg, bgb: ibcb, bgX: ibx, bgY: iby, scale: isa, trX: itx, trY: ity, trZ: itz, roX: irx, roY: iry, roZ: irz, opacity: iop, scroll: isc };
+            var target = { w: wi, h: he, t: top, r: ri, b: bo, l: le, colr: cor, colg: cog, colb: cob, bgr: bcr, bgg: bcg, bgb: bcb, bgX: bx, bgY: by, scale: sa, trX: tx, trY: ty, trZ: tz, roX: rx, roY: ry, roZ: rz, opacity: op, scroll: sc };
 
-            var tween = new TWEEN.Tween(from)
-                .to(target, ops.duration)
-                .delay(ops.delay)
-                .easing(ops.easing)
-                .yoyo(ops.yoyo)
-                .repeat(rpv)
+            var tween = new TWEEN.Tween( from )
+                .to( target, ops.duration )
+                .delay( ops.delay )
+                .easing( ops.easing )
+                .yoyo( ops.yoyo )
+                .repeat( rpv )
                 .onUpdate(
                     function () {
 
                         //set tween values
 
                         //color and background-color
-                        if (cv(cor)) {
-                            el.style.color = rth(parseInt(this.colr), parseInt(this.colg), parseInt(this.colb));
-                        }
-                        if (cv(bcr)) {
-                            el.style.backgroundColor = rth(parseInt(this.bgr), parseInt(this.bgg), parseInt(this.bgb));
-                        }
+                        if ( cv(cor) ) { el.style.color = rth( parseInt(this.colr),parseInt(this.colg),parseInt(this.colb) ); }
+                        if ( cv(bcr) ) { el.style.backgroundColor = rth( parseInt(this.bgr),parseInt(this.bgg),parseInt(this.bgb)); }
 
                         //translate3d
-                        if (cv(tx) || cv(ty) || cv(tz)) {
+                        if ( cv(tx) || cv(ty) || cv(tz) ) {
                             tr3d = 'translate3d(' + ((this.trX + txu) || 0) + ',' + ((this.trY + tyu) || 0) + ',' + ((this.trZ + tzu) || 0) + ')';
-                        } else {
-                            tr3d = '';
-                        }
+                        } else { tr3d = ''; }
 
                         var roxt = cv(rx) ? ' rotateX(' + this.roX + 'deg)' : '';
                         var royt = cv(ry) ? ' rotateY(' + this.roY + 'deg)' : '';
@@ -303,70 +243,50 @@ define(function (require, exports, module) {
 
                         //sum all transform
                         var transform = sca + tr3d + roxt + royt + rozt;
-                        if (cv(transform)) {
-                            tr(transform);
-                        }
+                        if ( cv(transform) ) { tr(transform); }
 
                         //dimensions
-                        if (cv(wi)) {
-                            el.style.width = this.w + wiu;
-                        }
-                        if (cv(he)) {
-                            el.style.height = this.h + heu;
-                        }
+                        if ( cv(wi) ) { el.style.width = this.w + wiu; }
+                        if ( cv(he) ) { el.style.height = this.h + heu; }
 
                         //positioning
-                        if (cv(top)) {
-                            el.style.top = this.t + tou;
-                        }
-                        if (cv(ri)) {
-                            el.style.right = this.r + riu;
-                        }
-                        if (cv(bo)) {
-                            el.style.bottom = this.b + bou;
-                        }
-                        if (cv(le)) {
-                            el.style.left = this.l + leu;
-                        }
+                        if ( cv(top) ) { el.style.top = this.t + tou; }
+                        if ( cv(ri ) ) { el.style.right = this.r + riu; }
+                        if ( cv(bo ) ) { el.style.bottom = this.b + bou; }
+                        if ( cv(le ) ) { el.style.left = this.l + leu; }
 
                         // scrolling
-                        if (cv(sc)) {
-                            sct[0].scrollTop = this.scroll;
-                        }
+                        if ( cv(sc) ) { sct[0].scrollTop = this.scroll; }
 
                         //background position
-                        if (cv(bx) || cv(by)) {
+                        if ( cv(bx) || cv(by) ) {
                             var bXX = this.bgX;
                             var bYY = this.bgY;
-                            el.style.backgroundPosition = bXX.toString() + '% ' + bYY.toString() + '%';
+                            el.style.backgroundPosition = bXX.toString()+'% '+bYY.toString()+'%';
                         }
 
                         //opacity
-                        if (cv(op)) {
-                            el.style.opacity = this.opacity;
-                        }
+                        if ( cv(op) ) { el.style.opacity = this.opacity; }
 
                         //run special function onUpdate
-                        if (special && typeof special === "function") {
-                            special();
-                        }
+                        if ( special && typeof special === "function") { special(); }
                     }
                 )
-                .onComplete(runCallback)
+                .onComplete( runCallback )
                 .start();
             tweens.push(tween);
 
             function animateTween(time) {
-                requestAnimationFrame(animateTween);
+                requestAnimationFrame( animateTween );
                 TWEEN.update(time);
             }
 
             //callback when tween is finished
             function runCallback() {
-                if (callback && typeof callback === "function") {
+                if ( callback && typeof callback === "function") {
                     callback();
                 }
-                if (cv(otsc)) {
+                if ( cv(otsc) ) {
                     $('body').removeClass('scrolling');
                 }
             }
@@ -377,81 +297,72 @@ define(function (require, exports, module) {
 
             //value checker
             function cv(val) {
-                if (val !== 'undefined' && val !== '' && val !== 'NaN') return true;
+                if ( val !== 'undefined' && val !== '' && val !== 'NaN' ) return true;
             }
 
             //get true w/h
-            function truD(d) {
-                var v, u;
+            function truD(d){
+                var v,u;
                 if (/px/i.test(d)) {
-                    u = 'px';
-                    v = parseInt(d);
+                    u = 'px'; v = parseInt( d );
                 } else if (/%/i.test(d)) {
-                    u = '%';
-                    v = parseInt(d);
+                    u = '%'; v = parseInt( d );
                 } else {
-                    v = d;
-                    u = 'px';
+                    v = d; u = 'px';
                 }
-                return [v, u];
+                return [v,u];
             }
 
             //get background position true values
             function truX(x) {
-                if (x == 'left') {
+                if ( x == 'left' ) {
                     return 0;
-                } else if (x == 'center') {
+                } else if ( x == 'center' ) {
                     return 50;
-                } else if (x == 'right') {
+                } else if ( x == 'right' ) {
                     return 100;
                 } else {
-                    return parseInt(x);
+                    return parseInt( x );
                 }
             }
-
             function truY(y) {
-                if (y == 'top') {
+                if ( y == 'top' ) {
                     return 0;
-                } else if (y == 'center') {
+                } else if ( y == 'center' ) {
                     return 50;
-                } else if (y == 'bottom') {
+                } else if ( y == 'bottom' ) {
                     return 100;
                 } else {
-                    return parseInt(y);
+                    return parseInt( y );
                 }
             }
 
             //get current background position
             function bPos(elem) {
-                var sty = css.backgroundPosition, x, y;
+                var sty = css.backgroundPosition,x,y;
                 var pos = sty.split(" ");
                 x = truX(pos[0]);
-                if (cv(pos[1])) {
+                if ( cv(pos[1]) ) {
                     y = truY(pos[1]);
                 } else {
                     y = 0;
                 }
-                return [x, y];
+                return [ x, y ];
             }
 
             // convert transparent to rgba()
             function truC(c) {
-                if (c === 'transparent') {
-                    return c.replace('transparent', 'rgba(0,0,0,0)');
-                } else if (cv(c)) {
+                if ( c === 'transparent' ) {
+                    return c.replace('transparent','rgba(0,0,0,0)');
+                } else if ( cv(c) ) {
                     return c;
                 }
             }
 
             // process color
             function pc(c) {
-                if (cv(c) && /#/i.test(c)) {
-                    return [htr(c).r, htr(c).g, htr(c).b];
-                } else {
-                    return c.replace(/[^\d,]/g, '').split(',');
-                }
+                if ( cv(c) && /#/i.test(c) ) { return [htr(c).r,htr(c).g,htr(c).b]; } else { return c.replace(/[^\d,]/g, '').split(','); }
             }
-
             //transform rgb to hex or vice-versa
             function rth(r, g, b) {
                 return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
@@ -460,16 +371,16 @@ define(function (require, exports, module) {
             function htr(hex) {
                 //Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
                 var shr = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-                hex = hex.replace(shr, function (m, r, g, b) {
+                hex = hex.replace(shr, function(m, r, g, b) {
                     return r + r + g + g + b + b;
                 });
 
                 var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
                 return result ? {
-                    r: parseInt(result[1], 16),
-                    g: parseInt(result[2], 16),
-                    b: parseInt(result[3], 16)
-                } : null;
+                        r: parseInt(result[1], 16),
+                        g: parseInt(result[2], 16),
+                        b: parseInt(result[3], 16)
+                    } : null;
             }
 
             //process transform
@@ -482,9 +393,9 @@ define(function (require, exports, module) {
 
             //get true container for scroll events
             function gSC(c) {
-                return $(c).map(function () {
+                return $(c).map(function() {
                     var cnt = this,
-                        isWin = !cnt.nodeName || $.inArray(cnt.nodeName.toLowerCase(), ['iframe', '#document', 'html', 'body']) != -1;
+                        isWin = !cnt.nodeName || $.inArray( cnt.nodeName.toLowerCase(), ['iframe','#document','html','body'] ) != -1;
                     if (!isWin) return cnt;
 
                     var doc = (cnt.contentWindow || cnt).document || cnt.ownerDocument || cnt;
@@ -498,23 +409,23 @@ define(function (require, exports, module) {
         }; // closing the main object
 
         //prevent mousewheel while scrolling
-        $(window).on('mousewheel DOMMouseScroll', function (e) {
-            if ($('body').hasClass('scrolling')) {
+        $(window).on('mousewheel DOMMouseScroll',function(e) {
+            if ( $('body').hasClass('scrolling') ) {
                 e.preventDefault();
             }
         });
 
         //INIT ANIMATION
-        $.fn.jQueryTween = function (options, callback, special) {
-            return this.each(function () {
-                new JQueryTween(this, options, callback, special);
+        $.fn.jQueryTween = function( options, callback, special ) {
+            return this.each(function() {
+                new JQueryTween( this, options, callback, special );
             });
         };
 
         // PAUSE / PLAY / STOP
-        ['play', 'pause', 'stop'].forEach(function (prop) {
+        ['play', 'pause', 'stop'].forEach(function(prop){
             $.fn[prop] = function () {
-                for (var i = 0; i < tweens.length; i++) {
+                for ( var i = 0; i < tweens.length; i++ ) {
                     tweens[i][prop]();
                 }
             }
