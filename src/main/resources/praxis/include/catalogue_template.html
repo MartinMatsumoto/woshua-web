@@ -1,6 +1,6 @@
 <ul th:fragment="catalogue_template(catalogues,hidden)" th:class="${hidden} ? 'margin_child line catalogue_hide' : 'margin_child line'">
     <li th:each="child : ${catalogues}">
-        <div class="item padding_child" th:attr="title=${child.name},parent=${child.parent.id},type=${child.type}">
+        <div class="item padding_child" th:attr="title=${child.name},parent=${child.parent.id},type=${child.type},catalogueId=${child.id}">
             <span th:text="${child.name}"></span>
             <i class="catalogue_up" title="展开" th:if="!${child.isLeaf()}"></i>
         </div>

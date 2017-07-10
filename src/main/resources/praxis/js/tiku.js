@@ -14,6 +14,6 @@ seajs.use(['header_module','login_dialog_module','tiku_module','catalogue_module
 
     tikuModule.initTips();
 
-    catalogueModule.init();
+    catalogueModule.init(tikuModule.call);
 
 });

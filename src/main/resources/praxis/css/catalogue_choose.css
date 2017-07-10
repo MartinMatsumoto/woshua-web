@@ -15,7 +15,7 @@
     position: absolute;
     margin-left: -24px;
     margin-top: 200px;
-    background: url(/praxis/images/small_widget.png) no-repeat -46px 0;
+    background: url(/praxis/images/small_widget.png) no-repeat -45px 0;
     cursor: pointer;
     color: white;
     text-align: center;
@@ -27,7 +27,7 @@
     position: fixed;
     right: 0px;
     top: 332px;
-    background: url(/praxis/images/small_widget.png) no-repeat -46px 0;
+    background: url(/praxis/images/small_widget.png) no-repeat -45px 0;
     cursor: pointer;
     color: white;
     text-align: center;

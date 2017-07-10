@@ -31,6 +31,7 @@ define(function (require, exports, module) {
     var totalCount = 0;
     var showPage = 0;
     var showNumMax = 4;
+    var catalogueId;
 
     //单选题
     var singleChooseType = 17;
@@ -140,6 +141,11 @@ define(function (require, exports, module) {
 
         requestPraxis();
     }
+    
+    exports.call = function (catalogueIdGet) {
+        catalogueId = catalogueIdGet;
+        requestPraxis();
+    }
 
     var refreshTipType = function () {
         var gradeArr = $("li[id*='course_grade']");
@@ -228,6 +234,7 @@ define(function (require, exports, module) {
             grade: grade,
             decipline: decipline,
             type: type,
+            catalogueId : catalogueId,
             difficult : difficult
         }
         request[csrfParameterName] = csrfToken;
