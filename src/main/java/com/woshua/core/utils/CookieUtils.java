@@ -11,6 +11,12 @@ public class CookieUtils {
     public static final String KEY_NAME = "woshua_key";
     public static final String ACCOUNT_NAME = "woshua_account";
 
+    public static final String VIEW_HISTORY_COOKIE_KEY = "client_view_history";
+    public static final int COOKIE_AGE = 30 * 24 * 60 * 60;
+    public static final String COOKIE_PATH = "/";
+    public static final String WEB_SITE = "www.mltr.com.cn";
+    public static final String WEB_DOMAIN = "mltr.com.cn";
+
     /**
      * 根据cookie名字取得cookie
      *

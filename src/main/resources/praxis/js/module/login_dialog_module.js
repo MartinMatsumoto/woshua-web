@@ -229,7 +229,6 @@ define(function (require, exports, module) {
             return false;
         }
 
-        console.log(nickName);
         if (!utils.checkNickName(nickName, 1, 8)) {
             changeErrorType("昵称长度必须为1-8个字符，大小写中英文字符或数字");
             return false;

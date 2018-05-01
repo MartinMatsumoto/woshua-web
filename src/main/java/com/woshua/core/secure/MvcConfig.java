@@ -2,6 +2,7 @@ package com.woshua.core.secure;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.web.config.EnableSpringDataWebSupport;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -28,4 +29,9 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         super.addResourceHandlers(registry);
     }
 
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**");
+        super.addInterceptors(registry);
+    }
 }

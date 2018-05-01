@@ -17,7 +17,9 @@ public enum ErrorCode {
 	/** 注册失败 */
 	ERRORCODE_REGISTER_ERROR(7, "注册失败，请重试。"),
 	/** 账号或邮箱已存在 */
-	ERRORCODE_LOGIN_ERROR(8, "账号不存在或密码错误");
+	ERRORCODE_LOGIN_ERROR(8, "账号不存在或密码错误"),
+
+	ERRORCODE_UPLOADFILE_ERROR(9,"上传失败");
 
 	private int value;
 	private String desc;
