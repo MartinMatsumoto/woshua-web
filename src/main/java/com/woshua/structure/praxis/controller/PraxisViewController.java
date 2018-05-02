@@ -83,6 +83,7 @@ public class PraxisViewController extends BaseController {
         List<EnablePageStatusTo> enablePageStatusTos = enablePageStatusService.findAll();
         List<MapTree> deciplines = mapTreeService.listDeciplines();
         List<MapTree> praxisType = mapTreeService.listPraxisType();
+        List<MapTree> grades = mapTreeService.listGrades();
 
         ModelAndView modelAndView = new ModelAndView("praxis/zujuan", "user", new UserTo(user));
         modelAndView.addObject("status", enablePageStatusTos);
@@ -90,25 +91,7 @@ public class PraxisViewController extends BaseController {
         modelAndView.addObject("paperTypes", PaperType.getTypes());
         modelAndView.addObject("deciplines", deciplines);
         modelAndView.addObject("praxisType", praxisType);
-
-        return modelAndView;
-    }
-
-    @GetMapping(value = "/zujuan2")
-    public ModelAndView praxisCombinePage2(HttpServletRequest request) {
-        User user = userService.authCookieUser(request.getCookies(), getIpAddress(request));
-        if (user == null) {
-            return new ModelAndView(new RedirectView("/"));
-        }
-
-        List<MapTree> grades = mapTreeService.listGrades();
-        List<MapTree> deciplines = mapTreeService.listDeciplines();
-        List<MapTree> praxisType = mapTreeService.listPraxisType();
-
-        ModelAndView modelAndView = new ModelAndView("praxis/zujuan", "user", new UserTo(user));
         modelAndView.addObject("grades", grades);
-        modelAndView.addObject("deciplines", deciplines);
-        modelAndView.addObject("praxisType", praxisType);
 
         return modelAndView;
     }

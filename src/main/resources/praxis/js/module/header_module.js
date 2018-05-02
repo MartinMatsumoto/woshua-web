@@ -93,14 +93,14 @@ define(function (require, exports, module) {
         if (!part) {
             part = this;
         }
-        $.removeCookie("woshua_key", {path: '/'});
-        $.removeCookie("woshua_id", {path: '/'});
-        $.removeCookie("woshua_account", {path: '/'});
-        $.removeCookie("woshua_nickname", {path: '/'});
-        $.removeCookie("woshua_sex", {path: '/'});
-        $.removeCookie("woshua_user_type", {path: '/'});
-        $.removeCookie("woshua_favorite_num", {path: '/'});
-        $.removeCookie("woshua_icon_path", {path: '/'});
+        $.cookie("woshua_key", "", {path: '/'});
+        $.cookie("woshua_id", "", {path: '/'});
+        $.cookie("woshua_account", "", {path: '/'});
+        $.cookie("woshua_nickname", "", {path: '/'});
+        $.cookie("woshua_sex", "", {path: '/'});
+        $.cookie("woshua_user_type", "", {path: '/'});
+        $.cookie("woshua_favorite_num", "", {path: '/'});
+        $.cookie("woshua_icon_path", "", {path: '/'});
         part.showLogin();
     }
 

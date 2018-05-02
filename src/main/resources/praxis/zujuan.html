@@ -54,7 +54,7 @@
     </div>
 
     <ul class="choose_ul" id="choose_major">
-        <li th:each="status : ${status}" th:text="${status.gradeName} + ${status.majorName}" th:attr="circle=${status.id}"></li>
+        <li th:each="decipline : ${deciplines}" th:text="${decipline.name}" th:attr="circle=${decipline.id}"></li>
     </ul>
 
     <div class="subtitle">选择试卷版式</div>

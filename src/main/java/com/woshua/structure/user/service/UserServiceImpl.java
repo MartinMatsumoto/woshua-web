@@ -41,23 +41,30 @@ public class UserServiceImpl implements UserService {
         Cookie idCookie = CookieUtils.getCookie(cookies, CookieUtils.ID_NAME);
         Cookie keyCookie = CookieUtils.getCookie(cookies, CookieUtils.KEY_NAME);
         Cookie accountCookie = CookieUtils.getCookie(cookies, CookieUtils.ACCOUNT_NAME);
+        try {
+            if (idCookie != null && keyCookie != null && accountCookie != null) {
+                String idString = idCookie.getValue();
+                String keyString = keyCookie.getValue();
+                String accountString = accountCookie.getValue();
+                if (!StringUtils.isEmpty(idString) && !StringUtils.isEmpty(keyString) && !StringUtils.isEmpty(accountString)) {
+                    Long id = Long.parseLong(idCookie.getValue());
+                    String key = keyCookie.getValue();
+                    String account = accountCookie.getValue();
 
-        if (idCookie != null && keyCookie != null && accountCookie != null) {
-            Long id = Long.parseLong(idCookie.getValue());
-            String key = keyCookie.getValue();
-            String account = accountCookie.getValue();
+                    String newKey = CookieUtils.createCookieKey(id, account, ip);
+                    if (!newKey.equals(key)) {
+                        return null;
+                    }
 
-            String newKey = CookieUtils.createCookieKey(id, account, ip);
-            if (!newKey.equals(key)) {
-                return null;
+                    User user = findById(id);
+                    if (user != null) {
+                        return user;
+                    }
+                }
             }
-
-            User user = findById(id);
-            if (user != null) {
-                return user;
-            }
+        } catch (Exception e) {
+            return null;
         }
-
         return null;
     }
 

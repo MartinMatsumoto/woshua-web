@@ -1,5 +1,6 @@
 package com.woshua.core.secure;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.web.config.EnableSpringDataWebSupport;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -10,7 +11,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 @EnableSpringDataWebSupport
 public class MvcConfig extends WebMvcConfigurerAdapter {
-    
+
+    //需要拦截的地址
+    private final String[] interceptUrls = {"/praxis/space","/praxis/zujuan"};
+
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("praxis/index");
@@ -31,7 +35,12 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**");
+        registry.addInterceptor(getLoginIntercptor()).addPathPatterns(interceptUrls);
         super.addInterceptors(registry);
+    }
+
+    @Bean
+    public LoginInterceptor getLoginIntercptor(){
+        return new LoginInterceptor();
     }
 }
