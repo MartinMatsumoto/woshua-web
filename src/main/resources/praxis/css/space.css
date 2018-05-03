@@ -163,3 +163,13 @@ ul {
     width: 284px;
     float: left;
 }
+
+.no_more_data_space .text {
+    width: 284px;
+    text-align: center;
+    display: block;
+    font-family: Microsoft YaHei, monospace;
+    color: #434343;
+    font-weight: bold;
+    margin-top: 15px;
+}

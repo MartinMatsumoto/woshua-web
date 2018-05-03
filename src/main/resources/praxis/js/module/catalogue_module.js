@@ -16,7 +16,7 @@ define(function (require, exports, module) {
 
     var btnWidth = closeBtn.width();
     var containerWidth = allContainer.width();
-    var totalWidth = btnWidth + containerWidth;
+    var totalWidth = btnWidth + containerWidth + 1;
 
     var prev;
     var call;
@@ -92,6 +92,8 @@ define(function (require, exports, module) {
         openBtn.bind("click", function () {
             hideOpen();
         });
+
+        $("#catalogue_content").children("ul").css("margin-left",0);
 
         byBook.bind("click",function () {
             byBook.addClass("choose");

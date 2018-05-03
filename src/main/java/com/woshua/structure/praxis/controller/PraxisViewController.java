@@ -2,10 +2,7 @@ package com.woshua.structure.praxis.controller;
 
 import com.woshua.core.enums.CombinePaperType;
 import com.woshua.core.enums.PaperType;
-import com.woshua.core.web.BaseController;
-import com.woshua.core.web.ErrorCode;
-import com.woshua.core.web.Header;
-import com.woshua.core.web.WebJsonView;
+import com.woshua.core.web.*;
 import com.woshua.structure.catalogue.domain.Catalogue;
 import com.woshua.structure.catalogue.service.CatalogueService;
 import com.woshua.structure.maptree.domain.MapTree;
@@ -63,23 +60,13 @@ public class PraxisViewController extends BaseController {
     }
 
     @GetMapping(value = "/space")
-    public ModelAndView praxisSpace(HttpServletRequest request) {
-        User user = userService.authCookieUser(request.getCookies(), getIpAddress(request));
-        if (user == null) {
-            return new ModelAndView(new RedirectView("/"));
-        }
-
+    public ModelAndView praxisSpace(HttpServletRequest request, @ObjectConvertAnno User user) {
         ModelAndView modelAndView = new ModelAndView("praxis/space", "user", new UserTo(user));
         return modelAndView;
     }
 
     @GetMapping(value = "/zujuan")
-    public ModelAndView praxisCombinePageStatus(HttpServletRequest request) {
-        User user = userService.authCookieUser(request.getCookies(), getIpAddress(request));
-        if (user == null) {
-            return new ModelAndView(new RedirectView("/"));
-        }
-
+    public ModelAndView praxisCombinePageStatus(HttpServletRequest request, @ObjectConvertAnno User user) {
         List<EnablePageStatusTo> enablePageStatusTos = enablePageStatusService.findAll();
         List<MapTree> deciplines = mapTreeService.listDeciplines();
         List<MapTree> praxisType = mapTreeService.listPraxisType();
@@ -99,13 +86,10 @@ public class PraxisViewController extends BaseController {
     @PostMapping(path = "/list_praxis")
     public
     @ResponseBody
-    ModelAndView login(Pageable pageable, @RequestParam("grade") MapTree grade, @RequestParam("decipline") MapTree decipline, @RequestParam("type") MapTree type, int difficult, HttpServletRequest request) {
-        User user = userService.authCookieUser(request.getCookies(), getIpAddress(request));
-        if(pageable.getPageNumber() > 5 && user == null){
-            return new ModelAndView(new WebJsonView(new Header(ErrorCode.ERRORCODE_UN_LOGIN)));
-        }
+    ModelAndView login(Pageable pageable, @RequestParam("grade") MapTree grade, @RequestParam("decipline") MapTree decipline, @RequestParam("type") MapTree type, int difficult, HttpServletRequest request, @ObjectConvertAnno User user) {
+        String catalogueId = request.getParameter("catalogueId");
 
-        Map<String, Object> result = praxisService.listByParams(pageable, grade, decipline, type, difficult, user);
+        Map<String, Object> result = praxisService.listByParams(pageable, grade, decipline, type, difficult, user, catalogueId);
         return new ModelAndView(new WebJsonView(result));
     }
 

@@ -38,7 +38,7 @@ public class PraxisServiceImpl implements PraxisService {
     private UserRepository userRepository;
 
     @Override
-    public Map<String, Object> listByParams(Pageable pageable, MapTree grade, MapTree decipline, MapTree type, int difficult, User user) {
+    public Map<String, Object> listByParams(Pageable pageable, MapTree grade, MapTree decipline, MapTree type, int difficult, User user, String catalogueId) {
         Page<Praxis> praxisList;
         Map<String, Object> result = new HashMap<>();
 

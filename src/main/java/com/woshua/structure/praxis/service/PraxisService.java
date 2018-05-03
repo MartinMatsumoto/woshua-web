@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public interface PraxisService {
 
-    public Map<String, Object> listByParams(Pageable pageable, MapTree grade, MapTree decipline, MapTree type, int difficult, User user);
+    public Map<String, Object> listByParams(Pageable pageable, MapTree grade, MapTree decipline, MapTree type, int difficult, User user, String catalogueId);
 
     public boolean addFavorite(Praxis praxis, User user);
 

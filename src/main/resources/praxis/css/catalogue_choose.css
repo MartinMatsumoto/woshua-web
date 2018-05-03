@@ -3,7 +3,7 @@
     width: 300px;
     height: 500px;
     background-color: white;
-    right: -324px;
+    right: -325px;
     top: 50%;
     margin-top: -200px;
     border: 1px solid #fbca18;
@@ -69,6 +69,10 @@
     padding-left: 5px;
 }
 
+.catalogue_choose_container .padding_child span {
+    float: left;
+}
+
 .catalogue_choose_container .margin_child {
     margin-left: 5px;
 }
@@ -89,8 +93,8 @@
 }
 
 .catalogue_choose_container .content li .choose{
-    background-color: #1c4283;
-    color: white;
+    background-color: #1c4283 !important;
+    color: white !important;
 }
 
 .catalogue_choose_container .content li .item span{
