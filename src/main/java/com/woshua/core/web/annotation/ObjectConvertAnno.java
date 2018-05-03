@@ -3,7 +3,7 @@
  *
  * Copyright 2013 vision, Inc. All rights reserved.
  */
-package com.woshua.core.web;
+package com.woshua.core.web.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

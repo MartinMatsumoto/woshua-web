@@ -3,7 +3,6 @@ package com.woshua.core.web.annotation;
 import javax.servlet.http.HttpServletRequest;
 
 import com.woshua.core.utils.IPUtils;
-import com.woshua.core.web.ObjectConvertAnno;
 import com.woshua.structure.operator.domain.Operator;
 import com.woshua.structure.user.domain.User;
 import com.woshua.structure.user.service.UserService;

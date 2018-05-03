@@ -3,6 +3,7 @@ package com.woshua.structure.praxis.controller;
 import com.woshua.core.enums.CombinePaperType;
 import com.woshua.core.enums.PaperType;
 import com.woshua.core.web.*;
+import com.woshua.core.web.annotation.ObjectConvertAnno;
 import com.woshua.structure.catalogue.domain.Catalogue;
 import com.woshua.structure.catalogue.service.CatalogueService;
 import com.woshua.structure.maptree.domain.MapTree;
@@ -19,7 +20,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
