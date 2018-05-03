@@ -27,5 +27,5 @@ public interface PraxisRepository extends PagingAndSortingRepository<Praxis, Lon
     @Query(value = "delete from UserInfo where id=?1")where position=?1 and type=?2
     void delete(Integer id);*/
 
-    Page<Praxis> findAll(Specification<Praxis> params, Pageable pageable);
+//    Page<Praxis> findAll(Specification<Praxis> params, Pageable pageable);
 }

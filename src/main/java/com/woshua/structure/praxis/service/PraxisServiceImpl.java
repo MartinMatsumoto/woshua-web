@@ -1,6 +1,7 @@
 package com.woshua.structure.praxis.service;
 
 import com.querydsl.core.BooleanBuilder;
+import com.woshua.core.web.specification.SimpleSpecificationBuilder;
 import com.woshua.structure.maptree.domain.MapTree;
 import com.woshua.structure.praxis.domain.FavoriteRelation;
 import com.woshua.structure.praxis.domain.Praxis;
@@ -42,14 +43,27 @@ public class PraxisServiceImpl implements PraxisService {
         Page<Praxis> praxisList;
         Map<String, Object> result = new HashMap<>();
 
-        Praxis params = new Praxis();
-        params.setGrade(grade);
-        params.setMajor(decipline);
-        params.setType(type);
-        params.setDificulty(difficult);
-        praxisList = praxisRepository.findAll(new PraxisSpecification(params), pageable);
+        SimpleSpecificationBuilder<Praxis> builder = new SimpleSpecificationBuilder<Praxis>();
 
+        if (grade != null) {
+            builder.add("grade", "=", grade);
+        }
+
+        if (decipline != null) {
+            builder.add("major", "=", decipline);
+        }
+
+        if (type != null) {
+            builder.add("type", "=", type);
+        }
+
+        if (difficult != -1) {
+            builder.add("dificulty", "=", difficult);
+        }
+
+        praxisList = praxisRepository.findAll(builder.generateSpecification(), pageable);
         List<PraxisTo> praxisToList = new ArrayList<>();
+
         if (praxisList != null) {
             for (Praxis praxis : praxisList) {
                 boolean isFavorite = false;
@@ -62,8 +76,9 @@ public class PraxisServiceImpl implements PraxisService {
                 praxisToList.add(new PraxisTo(praxis, isFavorite));
             }
         }
+
         result.put("praxisList", praxisToList);
-        result.put("tatolPage", praxisList.getTotalPages());
+        result.put("tatolPage", praxisList == null ? 0 : praxisList.getTotalPages());
         return result;
     }
 
