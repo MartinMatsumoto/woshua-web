@@ -21,12 +21,12 @@ public class SimpleSpecificationBuilder<T> {
         so.setKey(key);
         so.setOper(oper);
         so.setValue(value);
-        opers = new ArrayList<SpecificationOperator>();
+        opers = new ArrayList<>();
         opers.add(so);
     }
 
     public SimpleSpecificationBuilder() {
-        opers = new ArrayList<SpecificationOperator>();
+        opers = new ArrayList<>();
     }
 
     /**

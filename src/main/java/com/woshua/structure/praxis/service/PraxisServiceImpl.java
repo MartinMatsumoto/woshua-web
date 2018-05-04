@@ -61,6 +61,8 @@ public class PraxisServiceImpl implements PraxisService {
             builder.add("dificulty", "=", difficult);
         }
 
+        builder.add("catalogueId", "j", catalogueId);
+
         praxisList = praxisRepository.findAll(builder.generateSpecification(), pageable);
         List<PraxisTo> praxisToList = new ArrayList<>();
 
