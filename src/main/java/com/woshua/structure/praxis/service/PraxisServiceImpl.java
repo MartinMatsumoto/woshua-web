@@ -43,6 +43,7 @@ public class PraxisServiceImpl implements PraxisService {
         Page<Praxis> praxisList;
         Map<String, Object> result = new HashMap<>();
 
+        //https://www.w3cschool.cn/jpaspec/jcqh1s4i.html
         SimpleSpecificationBuilder<Praxis> builder = new SimpleSpecificationBuilder<Praxis>();
 
         if (grade != null) {
@@ -61,7 +62,9 @@ public class PraxisServiceImpl implements PraxisService {
             builder.add("dificulty", "=", difficult);
         }
 
-        builder.add("catalogueId", "j", catalogueId);
+        if (catalogueId != null) {
+            builder.add("catalogues.id", "=", catalogueId);
+        }
 
         praxisList = praxisRepository.findAll(builder.generateSpecification(), pageable);
         List<PraxisTo> praxisToList = new ArrayList<>();

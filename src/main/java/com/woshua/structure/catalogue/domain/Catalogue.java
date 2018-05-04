@@ -2,6 +2,7 @@ package com.woshua.structure.catalogue.domain;
 
 import com.woshua.core.web.BaseEntity;
 import com.woshua.structure.maptree.domain.MapTree;
+import com.woshua.structure.praxis.domain.Praxis;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,20 +16,33 @@ public class Catalogue extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private String name;
+
     @ManyToOne
     @JoinColumn(name = "grade")
     private MapTree grade;
+
     @ManyToOne
     @JoinColumn(name = "major")
     private MapTree major;
+
     @OneToMany(mappedBy = "parent", fetch = FetchType.LAZY)
     @OrderBy("id")
     private List<Catalogue> children;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent")
     private Catalogue parent;
+
     private int type;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "catalogue_praxis",
+            joinColumns = @JoinColumn(name = "catalogue_id", referencedColumnName = "ID"),
+            inverseJoinColumns = @JoinColumn(name = "praxis_id", referencedColumnName = "ID"))
+    private List<Praxis> praxisList;
 
     public Catalogue(){
 
@@ -92,6 +106,14 @@ public class Catalogue extends BaseEntity {
 
     public void setType(int type) {
         this.type = type;
+    }
+
+    public List<Praxis> getPraxisList() {
+        return praxisList;
+    }
+
+    public void setPraxisList(List<Praxis> praxisList) {
+        this.praxisList = praxisList;
     }
 
     /**

@@ -1,8 +1,11 @@
 package com.woshua.structure.praxis.domain;
 
+import com.woshua.structure.catalogue.domain.Catalogue;
 import com.woshua.structure.maptree.domain.MapTree;
+import org.hibernate.engine.profile.Fetch;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by Acer on 2017/3/23.
@@ -44,6 +47,13 @@ public class Praxis {
     private int badNum;
 
     private int dificulty;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "catalogue_praxis",
+            joinColumns = @JoinColumn(name = "praxis_id", referencedColumnName = "ID"),
+            inverseJoinColumns = @JoinColumn(name = "catalogue_id", referencedColumnName = "ID"))
+    private List<Catalogue> catalogues;
 
     public Praxis() {
     }
@@ -142,5 +152,13 @@ public class Praxis {
 
     public void setDificulty(int dificulty) {
         this.dificulty = dificulty;
+    }
+
+    public List<Catalogue> getCatalogues() {
+        return catalogues;
+    }
+
+    public void setCatalogues(List<Catalogue> catalogues) {
+        this.catalogues = catalogues;
     }
 }

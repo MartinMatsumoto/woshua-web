@@ -44,6 +44,7 @@ public class SimpleSpecification<T> implements Specification<T> {
         /*
          * 根据不同的操作符返回特定的查询*/
         if ("=".equalsIgnoreCase(op.getOper())) {
+            System.out.println(op.getValue());
             return criteriaBuilder.equal(root.get(op.getKey()), op.getValue());
         } else if (">=".equalsIgnoreCase(op.getOper())) {
             return criteriaBuilder.ge(root.get(op.getKey()), (Number) op.getValue());
@@ -65,14 +66,6 @@ public class SimpleSpecification<T> implements Specification<T> {
             return criteriaBuilder.isNotNull(root.get(op.getKey()));
         } else if ("!=".equalsIgnoreCase(op.getOper())) {
             return criteriaBuilder.notEqual(root.get(op.getKey()), op.getValue());
-        } else if ("j".equalsIgnoreCase(op.getOper())) {
-
-            Predicate on1 = criteriaBuilder.equal(root.get("major"), 1000);
-//        criteriaBuilder.treat();
-            Join<Praxis,CataloguePraxisRelation> join = root.join("cataloguePraixsRelation",JoinType.LEFT);
-            join.on(on1);
-            /*Join<Praxis, CataloguePraxisRelation> item = root.join(Order_.itemList, JoinType.LEFT);
-            item.on(cb.equal(item.get(Item_.type), 1));*/
         }
         return null;
     }
