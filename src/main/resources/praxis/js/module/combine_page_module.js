@@ -5,6 +5,9 @@ define(function (require, exports, module) {
 
     var $ = require("jquery");
 
+    var grade = 0;
+    var gradeTimeout;
+
     var major = 0;
     var majorTimeout;
 
@@ -17,16 +20,70 @@ define(function (require, exports, module) {
     var majorChoose = $("#choose_major");
     var majorShow = $("#major_show");
 
+    var gradeSelect = $("#select_grade");
+    var gradeChoose = $("#choose_grade");
+    var gradeShow = $("#grade_show");
+
     var typeSelect = $("#select_type");
     var typeChoose = $("#choose_type");
     var typeShow = $("#type_show");
 
+    var start = $("#start");
+
     var paperSelect = $("#paper_type");
 
     exports.init = function () {
+        initGrade();
         initMajor();
         initType();
         initPaperType();
+        initStart();
+    }
+
+    function initGrade() {
+        gradeSelect.bind("click", function () {
+            gradeChoose.fadeIn(200);
+        });
+
+        var gradeChildren = gradeChoose.children();
+        for (var i = 0; i < gradeChildren.length; i++) {
+            if (i == 0) {
+                grade = $(gradeChildren[i]).attr("circle");
+                gradeShow.html($(gradeChildren[i]).html());
+            }
+            $(gradeChildren[i]).bind("click", function () {
+                grade = $(this).attr("circle");
+                gradeShow.html($(this).html());
+                gradeChoose.fadeOut(200);
+            });
+        }
+
+        gradeSelect.bind("mouseover", function () {
+            gradeHover();
+        });
+
+        gradeSelect.bind("mouseout", function () {
+            setGradeTimeout();
+        });
+
+        gradeChoose.bind("mouseover", function () {
+            gradeHover();
+        });
+
+        gradeChoose.bind("mouseout", function () {
+            setGradeTimeout();
+        });
+
+    }
+
+    function setGradeTimeout() {
+        gradeTimeout = setTimeout(function () {
+            gradeChoose.fadeOut(200);
+        }, 1000);
+    }
+
+    function gradeHover() {
+        clearTimeout(gradeTimeout);
     }
 
     function initMajor() {
@@ -137,6 +194,11 @@ define(function (require, exports, module) {
         }
         div.addClass("select");
         paperType = div.attr("circle");
+    }
+
+    function initStart() {
+        start.bind("click", function () {
+        });
     }
 
 });

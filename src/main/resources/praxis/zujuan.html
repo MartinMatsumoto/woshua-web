@@ -25,6 +25,7 @@
         <span>在线组卷</span>
     </div>
 
+    <!-- 方式开始 -->
     <div class="subtitle1">选择方式</div>
     <div class="subtitle_underline">
         <div class="yellow_line"></div>
@@ -40,7 +41,27 @@
     <ul class="choose_ul" id="choose_type">
         <li th:each="type : ${types}" th:text="${type.desc}" th:attr="circle=${type.value}"></li>
     </ul>
+    <!-- 方式结束 -->
 
+    <!-- 学段开始 -->
+    <div class="subtitle">选择学段</div>
+    <div class="subtitle_underline">
+        <div class="yellow_line"></div>
+        <div class="gray_line"></div>
+        <div class="dot"></div>
+    </div>
+
+    <div class="select_container" id="select_grade">
+        <span id="grade_show"></span>
+        <div class="arrow"></div>
+    </div>
+
+    <ul class="choose_ul" id="choose_grade">
+        <li th:each="grade : ${grades}" th:text="${grade.name}" th:attr="circle=${grade.id}"></li>
+    </ul>
+    <!-- 学段结束 -->
+
+    <!-- 科目开始 -->
     <div class="subtitle">选择科目</div>
     <div class="subtitle_underline">
         <div class="yellow_line"></div>
@@ -56,7 +77,7 @@
     <ul class="choose_ul" id="choose_major">
         <li th:each="decipline : ${deciplines}" th:text="${decipline.name}" th:attr="circle=${decipline.id}"></li>
     </ul>
-
+    <!-- 科目结束 -->
     <div class="subtitle">选择试卷版式</div>
     <div class="subtitle_underline">
         <div class="yellow_line"></div>
@@ -144,7 +165,7 @@
 
     <div class="clear"></div>
 
-    <div class="submit">选择知识点</div>
+    <div class="submit" id="start">选择知识点</div>
     <div style="height: 50px"></div>
 </div>
 

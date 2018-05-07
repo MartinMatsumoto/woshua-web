@@ -1,13 +1,12 @@
 package com.woshua.structure.praxis.service;
 
-import com.querydsl.core.BooleanBuilder;
-import com.woshua.core.web.specification.SimpleSpecificationBuilder;
+import com.github.wenhao.jpa.PredicateBuilder;
+import com.github.wenhao.jpa.Specifications;
 import com.woshua.structure.maptree.domain.MapTree;
 import com.woshua.structure.praxis.domain.FavoriteRelation;
 import com.woshua.structure.praxis.domain.Praxis;
 import com.woshua.structure.praxis.repository.FavoriteRelationRepository;
 import com.woshua.structure.praxis.repository.PraxisRepository;
-import com.woshua.structure.praxis.specification.PraxisSpecification;
 import com.woshua.structure.praxis.transferobj.PraxisTo;
 import com.woshua.structure.user.domain.User;
 import com.woshua.structure.user.repository.UserRepository;
@@ -43,30 +42,29 @@ public class PraxisServiceImpl implements PraxisService {
         Page<Praxis> praxisList;
         Map<String, Object> result = new HashMap<>();
 
-        //https://www.w3cschool.cn/jpaspec/jcqh1s4i.html
-        SimpleSpecificationBuilder<Praxis> builder = new SimpleSpecificationBuilder<Praxis>();
+        PredicateBuilder<Praxis> builder = Specifications.<Praxis>and();
 
         if (grade != null) {
-            builder.add("grade", "=", grade);
+            builder.eq("grade", grade);
         }
 
         if (decipline != null) {
-            builder.add("major", "=", decipline);
+            builder.eq("major", decipline);
         }
 
         if (type != null) {
-            builder.add("type", "=", type);
+            builder.eq("type", type);
         }
 
         if (difficult != -1) {
-            builder.add("dificulty", "=", difficult);
+            builder.eq("dificulty", difficult);
         }
 
         if (catalogueId != null) {
-            builder.add("catalogues.id", "=", catalogueId);
+            builder.eq("catalogues.id", catalogueId);
         }
 
-        praxisList = praxisRepository.findAll(builder.generateSpecification(), pageable);
+        praxisList = praxisRepository.findAll(builder.build(),pageable);
         List<PraxisTo> praxisToList = new ArrayList<>();
 
         if (praxisList != null) {
